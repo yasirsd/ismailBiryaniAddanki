@@ -1,16 +1,14 @@
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 
-const ThemeContext = createContext({ theme: 'light', toggle: () => {} })
+const ThemeContext = createContext({ theme: 'dark', toggle: () => {} })
 
 const STORAGE_KEY = 'ismail-biryani-theme'
 
 function getInitialTheme() {
-  if (typeof window === 'undefined') return 'light'
+  if (typeof window === 'undefined') return 'dark'
   const stored = window.localStorage.getItem(STORAGE_KEY)
   if (stored === 'light' || stored === 'dark') return stored
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light'
+  return 'dark'
 }
 
 export function ThemeProvider({ children }) {
