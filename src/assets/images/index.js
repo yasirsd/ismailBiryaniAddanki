@@ -4,7 +4,7 @@
 // parentheses.
 
 import brandLogoImg from './Ismail_Biryani_logo_4k_final-preview.png'
-import founderPicImg from './Ismail Biryani 2005 Pic (1).PNG'
+import founderPicImg from './Ismail Biryani 2005 Pic (1).png'
 import branchPicImg from './Ismail Biryani Addanki Branch.png'
 import proprietorPicImg from './syed vaseem akram.png'
 
