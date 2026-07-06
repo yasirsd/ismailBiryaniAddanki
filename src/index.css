@@ -1,0 +1,656 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette */
+  --color-background: #f5f5f2;
+  --color-background-dark: #090909;
+  --color-luxury-black: #111111;
+  --color-deep-red: #9b111e;
+  --color-saffron: #e59a2e;
+  --color-gold: #d4af37;
+  --color-cream: #faf7f2;
+  --color-olive: #556b52;
+  --color-text-primary: #111111;
+  --color-text-secondary: #6b6b6b;
+  --color-glass-border: rgba(255, 255, 255, 0.12);
+  --color-glass-surface: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-display: "Inter Variable", "Inter", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", ui-serif, Georgia,
+    "Times New Roman", serif;
+
+  /* Radii */
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --radius-3xl: 2.25rem;
+  --radius-4xl: 3rem;
+
+  /* Shadows */
+  --shadow-glow: 0 40px 80px -30px rgba(155, 17, 30, 0.35);
+  --shadow-soft: 0 20px 60px -20px rgba(17, 17, 17, 0.15);
+  --shadow-plate: 0 30px 80px -20px rgba(17, 17, 17, 0.25);
+
+  /* Easing (luxury) */
+  --ease-out-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-luxury: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --animate-shimmer: shimmer 3.2s linear infinite;
+  --animate-float-slow: float-slow 9s ease-in-out infinite;
+  --animate-steam: steam 6s ease-in-out infinite;
+  --animate-spice: spice 14s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+@keyframes steam {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-160px) scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes spice {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(var(--dx, 40px), 120vh, 0) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+/* Dark mode as class-based (Tailwind v4 opt-in) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --page-bg: #f5f5f2;
+    --page-fg: #111111;
+    --page-muted: #6b6b6b;
+    --page-surface: #ffffff;
+    --page-line: rgba(17, 17, 17, 0.08);
+    --page-elev: 0 30px 80px -30px rgba(17, 17, 17, 0.18);
+
+    /* ----------------------------------------------------------
+     * Responsive layout tokens.
+     * These are the single source of truth for page rhythm across
+     * every viewport. Everything in the app that used to hard-code
+     * `py-32 md:py-40`, `--reel-safe-right: 14rem`, `h-screen`, or
+     * `--blend-h: 7rem` should read from one of these tokens so a
+     * change here propagates site-wide.
+     *   --section-py         vertical padding for full sections
+     *   --gutter             horizontal inset from viewport edges
+     *   --reel-safe-right    reserved right column for ChapterDock
+     *   --blend-h            height of section-to-section fade band
+     *   --safe-bottom        bottom edge safe-area for fixed UI
+     * ---------------------------------------------------------- */
+    --section-py: clamp(3.5rem, 9vw, 10rem);
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --reel-safe-right: 2rem;
+    --blend-h: clamp(3rem, 6vw, 7rem);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* Reserve the dock-safe right column only from md upwards, where
+     the sticky ChapterDock actually renders. Below md the dock is a
+     top pill so nothing needs to hide behind. */
+  @media (min-width: 768px) {
+    :root {
+      --reel-safe-right: 14rem;
+    }
+  }
+
+  .dark {
+    color-scheme: dark;
+    --page-bg: #090909;
+    --page-fg: #f5f5f2;
+    --page-muted: #a3a3a3;
+    --page-surface: rgba(255, 255, 255, 0.04);
+    --page-line: rgba(255, 255, 255, 0.08);
+    --page-elev: 0 40px 100px -40px rgba(0, 0, 0, 0.9);
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--page-bg);
+    color: var(--page-fg);
+  }
+
+  html.lenis {
+    height: auto;
+  }
+  html.lenis,
+  html.lenis body {
+    overflow: clip;
+  }
+  html.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "ss02", "cv11";
+    background-color: var(--page-bg);
+    color: var(--page-fg);
+    transition: background-color 500ms var(--ease-out-luxury),
+      color 500ms var(--ease-out-luxury);
+  }
+
+  ::selection {
+    background: var(--color-deep-red);
+    color: #fff;
+  }
+
+  /* Cinematic focus */
+  :focus-visible {
+    outline: 2px solid var(--color-saffron);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Custom scrollbar (subtle) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(120, 120, 120, 0.25);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 120, 120, 0.4);
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  .container-luxury {
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* Vertical rhythm for full-page sections. Replaces the site-wide
+     `py-32 md:py-40` idiom so every section scales together on mobile. */
+  .section-py {
+    padding-block: var(--section-py);
+  }
+
+  /* Full-viewport heights that respect the iOS URL bar. Falls back to
+     `vh` on browsers that don't understand `svh` (very old Safari). */
+  .h-svh {
+    height: 100vh;
+    height: 100svh;
+  }
+  .min-h-svh {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+  .min-h-hero {
+    /* Hero deliberately overshoots by a small amount to preserve the
+       cinematic parallax feel without triggering iOS bar-jitter. */
+    min-height: 100vh;
+    min-height: 105svh;
+  }
+
+  /* Bottom safe-area padding for fixed / floating UI (FAB, mobile nav)
+     so nothing hides behind the iPhone home indicator. */
+  .pb-safe {
+    padding-bottom: calc(1rem + var(--safe-bottom));
+  }
+  .bottom-safe {
+    bottom: calc(1.5rem + var(--safe-bottom));
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .display-hero {
+    font-size: clamp(3rem, 9vw, 8.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+  }
+  .display-2 {
+    font-size: clamp(2.25rem, 5.5vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+  }
+  .display-3 {
+    font-size: clamp(1.75rem, 3.6vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: saturate(140%) blur(22px);
+    -webkit-backdrop-filter: saturate(140%) blur(22px);
+    border: 1px solid rgba(17, 17, 17, 0.06);
+  }
+  .dark .glass {
+    background: rgba(20, 20, 20, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(160%) blur(30px);
+    -webkit-backdrop-filter: saturate(160%) blur(30px);
+    border: 1px solid rgba(17, 17, 17, 0.06);
+  }
+  .dark .glass-strong {
+    background: rgba(15, 15, 15, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .glass-dark {
+    background: rgba(9, 9, 9, 0.55);
+    backdrop-filter: saturate(160%) blur(22px);
+    -webkit-backdrop-filter: saturate(160%) blur(22px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f5f5f2;
+  }
+
+  .noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .gradient-text-gold {
+    background: linear-gradient(120deg, #d4af37 0%, #e59a2e 45%, #d4af37 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-text-fire {
+    background: linear-gradient(120deg, #9b111e 0%, #e59a2e 60%, #d4af37 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      110deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.35) 45%,
+      transparent 70%
+    );
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
+  }
+
+  .mask-fade-y {
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      transparent 0,
+      #000 12%,
+      #000 88%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      180deg,
+      transparent 0,
+      #000 12%,
+      #000 88%,
+      transparent 100%
+    );
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .divider-luxury {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(17, 17, 17, 0.15),
+      transparent
+    );
+  }
+  .dark .divider-luxury {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+  }
+
+  .grain-bg {
+    background-color: var(--page-bg);
+    background-image: radial-gradient(
+        1200px 800px at 10% -10%,
+        rgba(229, 154, 46, 0.08),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 700px at 100% 10%,
+        rgba(155, 17, 30, 0.05),
+        transparent 60%
+      );
+  }
+  .dark .grain-bg {
+    background-image: radial-gradient(
+        1200px 800px at 10% -10%,
+        rgba(229, 154, 46, 0.1),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 700px at 100% 10%,
+        rgba(155, 17, 30, 0.12),
+        transparent 60%
+      );
+  }
+
+  /* ------------------------------------------------------------------
+   * Section blends
+   *
+   * Sits at the top / bottom of a section as a soft vertical gradient so
+   * hard color changes between neighbouring sections (e.g. dark story ->
+   * cream marquee) dissolve into a subtle transition band instead of a
+   * sharp line. Each side reads its own CSS custom property so a section
+   * can bleed differently into what sits above vs below.
+   *
+   *   .section-blend-t          — top-edge fade
+   *   .section-blend-b          — bottom-edge fade
+   *   --blend-t-from / --blend-b-from — colour to bleed IN from the
+   *                                     neighbour (defaults transparent)
+   *   --blend-h                 — height of the fade band (default 6rem)
+   * ------------------------------------------------------------------ */
+  .section-blend-t,
+  .section-blend-b {
+    position: relative;
+    isolation: isolate;
+  }
+  .section-blend-t::before,
+  .section-blend-b::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    height: var(--blend-h, 7rem);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .section-blend-t::before {
+    top: 0;
+    background: linear-gradient(
+      180deg,
+      var(--blend-t-from, transparent) 0%,
+      transparent 100%
+    );
+  }
+  .section-blend-b::after {
+    bottom: 0;
+    background: linear-gradient(
+      0deg,
+      var(--blend-b-from, transparent) 0%,
+      transparent 100%
+    );
+  }
+  /* Blend "from" tokens. These map to the *light-mode* neighbour colour so a
+     hard seam between (say) a cream section and a dark section dissolves into
+     a subtle transition band. In dark mode every neighbour is already dark, so
+     we neutralise the blend colours to keep sections crisp. */
+  .blend-t-dark {
+    --blend-t-from: #111111;
+  }
+  .blend-t-cream {
+    --blend-t-from: #faf7f2;
+  }
+  .blend-b-dark {
+    --blend-b-from: #111111;
+  }
+  .blend-b-cream {
+    --blend-b-from: #faf7f2;
+  }
+  .dark .blend-t-dark,
+  .dark .blend-t-cream,
+  .dark .blend-b-dark,
+  .dark .blend-b-cream {
+    --blend-t-from: transparent;
+    --blend-b-from: transparent;
+  }
+}
+
+/* ------------------------------------------------------------------
+ * Mobile Story — Vertical Reel Cinema.
+ *
+ * On phones (< 768px) the Story section switches from horizontal-pin
+ * cinema to a vertical stack of full-screen chapters. Native CSS
+ * scroll-snap glides the viewport to the next reel as the user flicks,
+ * so we don't need a JS gesture controller — the browser handles it.
+ *
+ * Snap only kicks in when the user is near a reel (proximity), so
+ * scrolling through Hero → StoryIntro → Marquee → Menu → … feels
+ * completely normal; only when passing through the story does the
+ * viewport gently lock onto each chapter.
+ *
+ * `[data-mobile-reel]` is set by MobileStory on each reel wrapper;
+ * `[data-story-intro]` on the intro block lets it snap too so the
+ * transition from intro → chapter 1 feels intentional.
+ * ------------------------------------------------------------------ */
+@media (max-width: 767.98px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+  [data-mobile-reel],
+  [data-story-intro] {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-snap-type: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------
+ * Accessibility utilities
+ * ------------------------------------------------------------------ */
+
+/* Visually-hidden helper (screen reader only). Used for headings and
+   labels that shouldn't render visually but must remain in the
+   accessibility tree. Mirrors Tailwind's `sr-only` in case anything
+   references it outside the framework. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip-to-content link. Invisible by default; when it receives keyboard
+   focus (Tab from the URL bar) it slides into the top-left as a chip
+   so a screen-reader / keyboard user can bypass the navbar and jump
+   straight to <main>. Sits above every fixed layer including the
+   BottomNav and the ScrollProgress bar. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  background: var(--color-luxury-black);
+  color: var(--color-cream);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+  transform: translateY(-140%);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--color-saffron);
+  outline-offset: 3px;
+}
+
+/* Strengthen focus rings on interactive UI. The base rule already
+   applies :focus-visible with a saffron outline; here we harden it
+   for icon buttons, links and form controls so the ring is legible on
+   every background (dark hero, cream sections, glassmorph pills). */
+button:focus-visible,
+[role='button']:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-saffron);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(229, 154, 46, 0.22);
+}
+
+/* Windows High Contrast / forced-colors mode. Ensures our custom
+   pill / glassmorph borders remain visible when the OS overrides
+   colours, and that focus rings survive the colour override. */
+@media (forced-colors: active) {
+  button,
+  [role='button'],
+  a {
+    forced-color-adjust: none;
+  }
+  :focus-visible {
+    outline: 2px solid CanvasText;
+    outline-offset: 3px;
+    box-shadow: none;
+  }
+  .skip-link {
+    background: Canvas;
+    color: CanvasText;
+    border: 1px solid CanvasText;
+  }
+}
+
+/* prefers-contrast: more — bump borders and eyebrow text a touch so
+   the site stays legible for users who request high contrast without
+   fully flipping to forced-colors mode. */
+@media (prefers-contrast: more) {
+  .eyebrow {
+    color: currentColor !important;
+    opacity: 1 !important;
+  }
+}
