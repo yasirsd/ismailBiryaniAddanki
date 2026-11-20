@@ -1,3 +1,5 @@
+import { fryPic, kebabPic, lassiPic, nizamiPic, premiumPic } from '@/assets/images'
+
 export const menuCategories = [
   { id: 'chicken', name: 'Chicken Dum Biryani', tagline: 'The signature' },
   { id: 'mutton', name: 'Mutton Biryani', tagline: 'Slow-cooked luxury' },
@@ -15,11 +17,11 @@ export const menuItems = [
     category: 'chicken',
     name: 'Signature Chicken Dum Biryani',
     description:
-      'Sneha Farm chicken layered with long-grain basmati, slow-cooked in a sealed handi with saffron, mint and traditional Hyderabadi masalas.',
+      'Sneha Farm chicken layered with long-grain basmati, slow-cooked the dum way with saffron, mint and traditional Hyderabadi masalas.',
     price: 260,
     tag: 'Signature',
     image:
-      'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1600&q=80',
   },
   {
     id: 'chicken-boneless-dum',
@@ -28,19 +30,19 @@ export const menuItems = [
     description:
       'Tender boneless chicken marinated overnight in yogurt and whole spices, dum-cooked on low flame.',
     price: 290,
-    image:
-      'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=1600&q=80',
+    image: nizamiPic,
+    objectPosition: '38% 58%',
   },
   {
     id: 'chicken-fry-piece',
     category: 'chicken',
     name: 'Chicken Fry Piece Biryani',
     description:
-      'Signature dum biryani crowned with a golden fried leg piece — crisp outside, silken within.',
+      'Signature dum biryani crowned with a golden fried leg piece - crisp outside, silken within.',
     price: 320,
     tag: 'Chef’s pick',
-    image:
-      'https://images.unsplash.com/photo-1633945274309-2c16c31e77b5?auto=format&fit=crop&w=1600&q=80',
+    image: fryPic,
+    objectPosition: '62% 55%',
   },
   // Mutton
   {
@@ -48,11 +50,12 @@ export const menuItems = [
     category: 'mutton',
     name: 'Hyderabadi Mutton Dum Biryani',
     description:
-      'Aged, hand-cut mutton simmered with saffron milk, browned onions and heritage masalas — a four-hour ceremony on the flame.',
+      'Aged, hand-cut mutton simmered with saffron milk, browned onions and heritage masalas - a four-hour ceremony on the flame.',
     price: 420,
     tag: 'House favorite',
     image:
-      'https://images.unsplash.com/photo-1701579231378-3726490a407b?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=1600&q=80',
+    objectPosition: '50% 46%',
   },
   {
     id: 'mutton-keema',
@@ -68,13 +71,13 @@ export const menuItems = [
   {
     id: 'family-jumbo',
     category: 'family',
-    name: 'Family Jumbo Handi (Serves 4)',
+    name: 'Family Jumbo Biryani (Serves 4)',
     description:
-      'A grand copper handi of signature dum biryani, raita, salan and shorba. Served at your table, opened at your table.',
+      'A generous share of signature dum biryani, raita, salan and shorba. Served at your table, set for the family.',
     price: 1099,
     tag: 'Serves 4',
     image:
-      'https://images.unsplash.com/photo-1701579231349-d7459c40919d?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1600&q=80',
   },
   {
     id: 'family-mutton',
@@ -93,21 +96,21 @@ export const menuItems = [
     category: 'special',
     name: 'Nizami Reserve Biryani',
     description:
-      'A limited weekend creation — kesar-infused basmati, edible silver leaf, house-blended garam masala.',
+      'A limited weekend creation - kesar-infused basmati, edible silver leaf, house-blended garam masala.',
     price: 549,
     tag: 'Limited',
-    image:
-      'https://images.unsplash.com/photo-1633945274309-2c16c31e77b5?auto=format&fit=crop&w=1600&q=80',
+    image: nizamiPic,
+    objectPosition: '38% 58%',
   },
   {
     id: 'special-veg',
     category: 'special',
     name: 'Royal Vegetable Dum',
     description:
-      'Baby vegetables, paneer and cashew braise, sealed with dough and finished on charcoal.',
+      'Baby vegetables, paneer and cashew braise, slow-cooked until the rice takes on every spice.',
     price: 249,
-    image:
-      'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=1600&q=80',
+    image: premiumPic,
+    objectPosition: '50% 62%',
   },
   // Starters
   {
@@ -127,8 +130,8 @@ export const menuItems = [
     description:
       'Coriander, mint and green chilli marinated chicken, kissed by the tandoor.',
     price: 240,
-    image:
-      'https://images.unsplash.com/photo-1633945274309-2c16c31e77b5?auto=format&fit=crop&w=1600&q=80',
+    image: kebabPic,
+    objectPosition: '50% 55%',
   },
   // Beverages
   {
@@ -138,8 +141,8 @@ export const menuItems = [
     description:
       'Thick yogurt whisked with saffron, cardamom and a whisper of rose.',
     price: 90,
-    image:
-      'https://images.unsplash.com/photo-1638176067000-9e2545bb54c8?auto=format&fit=crop&w=1600&q=80',
+    image: lassiPic,
+    objectPosition: '50% 68%',
   },
   {
     id: 'irani-chai',

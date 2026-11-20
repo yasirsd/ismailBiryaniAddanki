@@ -22,7 +22,7 @@ export function SmoothScroll({ children }) {
     if (typeof window === 'undefined') return
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     // Skip Lenis entirely on touch devices. Native touch scrolling is
-    // silky on iOS/Android and — critically — CSS scroll-snap only works
+    // silky on iOS/Android and - critically - CSS scroll-snap only works
     // when the browser owns the scroller. Lenis translates the body via
     // transforms, which disables page-level scroll-snap. By opting out
     // on touch we let phones behave like phones: native inertia, native

@@ -44,7 +44,7 @@ export function Navbar() {
   // When the drawer closes, return keyboard focus to the hamburger
   // button so screen-reader/keyboard users don't get dumped at the top
   // of the document. Skips the return when the close happened because
-  // a nav link was activated — the browser will then focus the target
+  // a nav link was activated - the browser will then focus the target
   // section instead.
   const closeDrawer = () => {
     setOpen(false)
@@ -137,7 +137,7 @@ export function Navbar() {
 }
 
 /* ------------------------------------------------------------------
- * MobileDrawer — full-viewport nav sheet.
+ * MobileDrawer - full-viewport nav sheet.
  *
  * Slides in from the top (matches the hamburger position) and fills
  * the entire viewport below the navbar. This gives us room for:
@@ -183,7 +183,7 @@ function MobileDrawer({ id, links, onClose }) {
         )
       ).filter((el) => el.offsetWidth > 0 || el.offsetHeight > 0)
 
-    // Initial focus — first focusable inside the sheet.
+    // Initial focus - first focusable inside the sheet.
     const focusables = getFocusable()
     focusables[0]?.focus?.()
 

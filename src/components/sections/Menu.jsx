@@ -20,7 +20,7 @@ export function Menu() {
   return (
     <section
       id="menu"
-      aria-label="The menu — Ismail Biryani signature offerings"
+      aria-label="The menu - Ismail Biryani signature offerings"
       className="section-py relative overflow-hidden bg-cream dark:bg-luxury-black"
     >
       <div className="pointer-events-none absolute inset-0 opacity-40">
@@ -63,7 +63,7 @@ export function Menu() {
           </div>
         </div>
 
-        {/* Category chips — horizontal scroll on mobile with edge fade
+        {/* Category chips - horizontal scroll on mobile with edge fade
             masks so the user gets a visual cue that there's more to
             swipe. `mask-image` fades both edges to transparent so chips
             visually dissolve into the section background. */}
@@ -143,7 +143,7 @@ function MenuCard({ item, index }) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
 
   function handleMove(e) {
-    // Skip the 3D tilt on touch devices — pointer events fire once at
+    // Skip the 3D tilt on touch devices - pointer events fire once at
     // tap and the card would be stuck rotated. `pointerType` is the
     // authoritative check.
     if (e.pointerType !== 'mouse') return
@@ -182,11 +182,16 @@ function MenuCard({ item, index }) {
           alt={item.name}
           loading="lazy"
           className="h-full w-full object-cover"
+          style={
+            item.objectPosition
+              ? { objectPosition: item.objectPosition }
+              : undefined
+          }
           initial={{ scale: 1.05 }}
           whileHover={{ scale: 1.12 }}
           transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
         />
-        {/* Bottom gradient — softened on mobile so the always-visible
+        {/* Bottom gradient - softened on mobile so the always-visible
             price/name overlay stays legible without a hover trigger. */}
         <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100" />
         {item.tag ? (
@@ -194,7 +199,7 @@ function MenuCard({ item, index }) {
             <Badge tone="gold">{item.tag}</Badge>
           </div>
         ) : null}
-        {/* Arrow chip — always visible on mobile (touch has no hover),
+        {/* Arrow chip - always visible on mobile (touch has no hover),
             reveals on hover on desktop. */}
         <div className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-black/40 text-white backdrop-blur-md transition-all duration-500 md:opacity-0 md:group-hover:opacity-100">
           <ArrowUpRight size={16} />

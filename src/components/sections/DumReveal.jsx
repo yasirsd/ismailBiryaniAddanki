@@ -18,12 +18,12 @@ import { useIsMobile } from '@/hooks/useMediaQuery'
 gsap.registerPlugin(ScrollTrigger)
 
 /**
- * DumReveal — thin dispatcher.
+ * DumReveal - thin dispatcher.
  *
  * Desktop and mobile use entirely different mechanics (pinned scroll-
  * scrubbed cinema vs. horizontal-swipe carousel), so we mount them as
  * two independent components rather than branching inside one. This
- * guarantees React fully unmounts one before mounting the other —
+ * guarantees React fully unmounts one before mounting the other -
  * critical because the desktop variant lets GSAP inject a pin-spacer
  * wrapper into the DOM, and any half-way branch-swap would leave
  * React trying to reconcile children that GSAP has already relocated
@@ -322,7 +322,7 @@ function DumRevealDesktop() {
     return (
       <section
         id="craft"
-        aria-label="The dum ceremony — opened at your table"
+        aria-label="The biryani ceremony - served at your table"
         className="section-blend-t blend-t-cream relative overflow-hidden bg-luxury-black text-cream"
       >
         <div className="container-luxury flex flex-col gap-16 py-24">
@@ -337,6 +337,11 @@ function DumRevealDesktop() {
                   alt={stage.title}
                   loading="lazy"
                   className="h-full w-full object-cover"
+                  style={
+                    stage.objectPosition
+                      ? { objectPosition: stage.objectPosition }
+                      : undefined
+                  }
                 />
               </div>
               <div>
@@ -362,7 +367,7 @@ function DumRevealDesktop() {
     <section
       id="craft"
       ref={rootRef}
-      aria-label="The dum ceremony — opened at your table"
+      aria-label="The biryani ceremony - served at your table"
       className="section-blend-t blend-t-cream relative overflow-hidden bg-luxury-black text-cream"
     >
       <div className="min-h-svh container-luxury relative z-10 flex flex-col justify-center py-24">
@@ -381,6 +386,11 @@ function DumRevealDesktop() {
                     alt={stage.title}
                     loading="lazy"
                     className="h-full w-full object-cover"
+                  style={
+                    stage.objectPosition
+                      ? { objectPosition: stage.objectPosition }
+                      : undefined
+                  }
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
                 </div>
@@ -393,7 +403,7 @@ function DumRevealDesktop() {
               <div className="pointer-events-none absolute inset-4 rounded-[2rem] border border-white/5" />
             </div>
 
-            {/* Interactive stage dots — clickable so the user can jump.
+            {/* Interactive stage dots - clickable so the user can jump.
                 The visible dot is 6px tall but the button owns a 44px
                 invisible hit area to meet WCAG 2.5.5 tap target size. */}
             <div className="absolute -bottom-10 left-1/2 flex -translate-x-1/2 items-center gap-1">
@@ -429,7 +439,7 @@ function DumRevealDesktop() {
               The Ceremony
             </div>
             <h2 className="display-2 mt-6 text-cream text-balance">
-              Every handi is opened{' '}
+              Every biryani is served{' '}
               <span className="gradient-text-fire">at your table.</span>
             </h2>
 
@@ -459,7 +469,7 @@ function DumRevealDesktop() {
                 One scroll · one stage
               </span>
               <span>
-                Flick to reveal the next beat of the dum ceremony — click a dot
+                Flick to reveal the next beat of the dum ceremony - click a dot
                 to jump.
               </span>
             </div>
@@ -471,7 +481,7 @@ function DumRevealDesktop() {
 }
 
 /* ------------------------------------------------------------------
- * DumRevealMobile — horizontal-swipe carousel for mobile.
+ * DumRevealMobile - horizontal-swipe carousel for mobile.
  *
  * On phones, the desktop's pinned scrubbed cinema fights native touch
  * inertia and pins the section for 400vh of scroll (which is a lot of
@@ -509,7 +519,7 @@ function DumRevealMobile({ stages }) {
   return (
     <section
       id="craft"
-      aria-label="The dum ceremony — opened at your table"
+      aria-label="The biryani ceremony - served at your table"
       className="section-blend-t blend-t-cream section-py relative overflow-hidden bg-luxury-black text-cream"
     >
       <div className="container-luxury relative">
@@ -520,7 +530,7 @@ function DumRevealMobile({ stages }) {
             The Ceremony
           </div>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-cream text-balance">
-            Every handi is opened{' '}
+            Every biryani is served{' '}
             <span className="gradient-text-fire">at your table.</span>
           </h2>
         </div>
@@ -589,8 +599,8 @@ function DumRevealMobile({ stages }) {
         </div>
 
         <p className="mt-6 max-w-md text-sm leading-relaxed text-cream/55">
-          Flick to walk through the ceremony — from sealing the handi with
-          dough to opening it, steaming, at your table.
+          Flick to walk through the ceremony - from the first grain of basmati
+          to the plate set, steaming, at your table.
         </p>
       </div>
     </section>
@@ -606,6 +616,11 @@ function DumStageCard({ stage, index, total }) {
           alt={stage.title}
           loading="lazy"
           className="h-full w-full object-cover"
+          style={
+            stage.objectPosition
+              ? { objectPosition: stage.objectPosition }
+              : undefined
+          }
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/25 to-transparent" />
 
@@ -620,7 +635,7 @@ function DumStageCard({ stage, index, total }) {
         </div>
 
         {/* Copy at the bottom of the card. Each Embla slide is bound to
-            a stable `stage` and never mutates — no AnimatePresence
+            a stable `stage` and never mutates - no AnimatePresence
             needed here (and it was actually a source of reconciliation
             bugs when combined with Embla's slide reordering). */}
         <div className="absolute inset-x-0 bottom-0 p-5">

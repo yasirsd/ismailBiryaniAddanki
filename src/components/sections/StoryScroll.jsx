@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { motion } from 'framer-motion'
 import { storyChapters } from '@/data/story'
 import { ChapterDock } from './story/ChapterDock'
 import { MobileStory } from './story/MobileStory'
@@ -34,13 +33,13 @@ const SNAP_COOLDOWN_MS = 1300 // total lockout between accepted gestures
 const TOUCH_THRESHOLD_PX = 34 // finger travel before a swipe counts
 
 /**
- * StoryScroll — thin dispatcher.
+ * StoryScroll - thin dispatcher.
  *
  * Desktop mounts the horizontal-pinned cinema (heavy GSAP DOM
  * manipulation); mobile mounts a completely different vertical stack
  * that relies on native scroll-snap. Keeping them as two independent
  * components (rather than branching inside one) guarantees React fully
- * unmounts one before mounting the other — without this, the desktop
+ * unmounts one before mounting the other - without this, the desktop
  * variant's GSAP pin-spacer wrapper survives across the branch swap
  * and React throws `NotFoundError: Failed to execute 'removeChild'`.
  */
@@ -50,7 +49,7 @@ export function StoryScroll() {
 }
 
 /**
- * StoryMobile — thin adapter that wires storyChapters into MobileStory
+ * StoryMobile - thin adapter that wires storyChapters into MobileStory
  * with the per-chapter reel picker. Lives here so it stays paired with
  * `reelByTone` (which is only defined in this file).
  */
@@ -58,7 +57,6 @@ function StoryMobile() {
   return (
     <MobileStory
       chapters={storyChapters}
-      StoryIntro={StoryIntro}
       renderReel={({ chapter, active, index, mobile }) => {
         const Reel = reelByTone[chapter.tone] ?? ReelFounding
         return (
@@ -215,7 +213,7 @@ function StoryDesktop() {
     // the pinned range; otherwise gestures pass through to Lenis so the
     // user can enter/exit the section naturally.
     //
-    // IMPORTANT — mobile behaviour:
+    // IMPORTANT - mobile behaviour:
     // Touch devices skip the wheel/touchmove capture handlers entirely.
     // On a phone, `touchmove preventDefault` + a 1.3s cool-down feels
     // laggy and blocks native inertia. Instead we let iOS/Android drive
@@ -251,12 +249,12 @@ function StoryDesktop() {
       const next = current + dir
 
       if (next < 0) {
-        // At first chapter, gesturing back — release control so Lenis can
-        // carry the user up into the StoryIntro naturally.
+        // At first chapter, gesturing back - release control so Lenis can
+        // carry the user up into the hero.
         return { intercept: false, targetIdx: null }
       }
       if (next > TOTAL - 1) {
-        // At last chapter, gesturing forward — release control so Lenis
+        // At last chapter, gesturing forward - release control so Lenis
         // can carry the user down into the next section (Marquee).
         return { intercept: false, targetIdx: null }
       }
@@ -372,7 +370,6 @@ function StoryDesktop() {
         aria-label="Our story, chapter by chapter"
         className="relative bg-luxury-black text-cream"
       >
-        <StoryIntro />
         <div className="flex flex-col">
           {storyChapters.map((chapter, i) => {
             const Reel = reelByTone[chapter.tone] ?? ReelFounding
@@ -394,8 +391,6 @@ function StoryDesktop() {
       aria-label="Our story, chapter by chapter"
       className="relative bg-luxury-black text-cream"
     >
-      <StoryIntro />
-
       <div
         ref={pinRef}
         className="h-svh relative w-full overflow-hidden"
@@ -451,32 +446,5 @@ function StoryDesktop() {
 
       <div aria-hidden className="h-[10vh] bg-luxury-black" />
     </section>
-  )
-}
-
-function StoryIntro() {
-  return (
-    <div className="container-luxury relative z-10 py-28 md:py-40">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="max-w-3xl"
-      >
-        <div className="eyebrow flex items-center gap-3 text-saffron">
-          <span className="h-px w-10 bg-saffron/60" />
-          Our Story · Six reels
-        </div>
-        <h2 className="display-2 mt-6 text-cream text-balance">
-          Twenty years. <span className="gradient-text-fire">One handi.</span>{' '}
-          A story still being served.
-        </h2>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/70">
-          Scroll through the chapters of Ismail Biryani — each scroll turns one
-          page of the film, from a single kitchen in Ongole to a global vision.
-        </p>
-      </motion.div>
-    </div>
   )
 }

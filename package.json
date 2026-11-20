@@ -2,7 +2,7 @@
   "name": "ismail-biryani",
   "private": true,
   "version": "1.0.0",
-  "description": "Ismail Biryani — a cinematic, premium website for the Addanki branch. Hyderabadi Dum Biryani, since 2005.",
+  "description": "Ismail Biryani - a cinematic, premium website for the Addanki branch. Hyderabadi Dum Biryani, since 2005.",
   "type": "module",
   "scripts": {
     "dev": "vite",

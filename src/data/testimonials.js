@@ -14,7 +14,7 @@ export const testimonials = [
     name: 'Farheen S.',
     role: 'Family diner',
     quote:
-      'They opened our handi at the table. The steam, the aroma — my son thought we were at a wedding. This is not a meal, this is a memory.',
+      'They served our biryani at the table. The steam, the aroma - my son thought we were at a wedding. This is not a meal, this is a memory.',
     rating: 5,
     avatar:
       'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',

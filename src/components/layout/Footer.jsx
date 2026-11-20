@@ -110,7 +110,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-6 text-sm text-cream/60 md:flex-row md:items-center">
           <p className="max-w-lg">
-            © {new Date().getFullYear()} Ismail Biryani — Addanki. A proprietor
+            © {new Date().getFullYear()} Ismail Biryani - Addanki. A proprietor
             firm by {site.proprietor}. Recipe by {site.founder}.
           </p>
 

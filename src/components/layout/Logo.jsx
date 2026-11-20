@@ -16,7 +16,7 @@ export function Logo({ className, invert = false }) {
   return (
     <a
       href="#top"
-      aria-label="Ismail Biryani — Home"
+      aria-label="Ismail Biryani - Home"
       className={cn(
         'group inline-flex items-center gap-3 select-none md:gap-4',
         className

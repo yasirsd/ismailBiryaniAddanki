@@ -9,7 +9,7 @@ import { ChapterDock } from './ChapterDock'
  * driven horizontal panning), on phones we simply stack the reels
  * vertically. Each reel is `100svh` tall and has `scroll-snap-align`
  * applied via CSS, so the browser natively snaps to the next chapter
- * when the user flicks up or down — no JS gesture jack, no cooldown,
+ * when the user flicks up or down - no JS gesture jack, no cooldown,
  * no fight with iOS inertia.
  *
  * We track the active reel with an IntersectionObserver so the mobile
@@ -21,7 +21,7 @@ import { ChapterDock } from './ChapterDock'
  * scrolling into Hero above or Marquee below hides it so it doesn't
  * cover unrelated content.
  */
-export function MobileStory({ chapters, StoryIntro, renderReel }) {
+export function MobileStory({ chapters, renderReel }) {
   const wrapperRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const [dockVisible, setDockVisible] = useState(false)
@@ -79,7 +79,7 @@ export function MobileStory({ chapters, StoryIntro, renderReel }) {
   }, [])
 
   // Programmatic jump when the dock is tapped. Uses native
-  // scrollIntoView with smooth behavior — no dependency on Lenis (which
+  // scrollIntoView with smooth behavior - no dependency on Lenis (which
   // isn't running on touch anyway).
   const jumpTo = useCallback((i) => {
     const node = wrapperRef.current?.querySelector(
@@ -96,12 +96,6 @@ export function MobileStory({ chapters, StoryIntro, renderReel }) {
       className="relative bg-luxury-black text-cream"
       ref={wrapperRef}
     >
-      {/* Intro block — snap-aligned so the transition from intro to
-          chapter 1 feels intentional rather than partial. */}
-      <div data-story-intro>
-        <StoryIntro />
-      </div>
-
       {/* Vertical stack of reels. Each wrapper is exactly 100svh and
           gets `scroll-snap-align: start` via the CSS rule in
           index.css keyed off `[data-mobile-reel]`. */}

@@ -37,7 +37,7 @@ const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
  */
 function rangeIncludesToday(rangeLabel, today) {
   const norm = rangeLabel.toLowerCase()
-  const match = norm.match(/([a-z]{3,})\s*[–\-—]\s*([a-z]{3,})/i)
+  const match = norm.match(/([a-z]{3,})\s*[–\--]\s*([a-z]{3,})/i)
   if (!match) return false
   const startIdx = DAYS.findIndex((d) =>
     match[1].toLowerCase().startsWith(d.toLowerCase())
@@ -91,7 +91,7 @@ export function Contact() {
           className="max-w-2xl"
         />
 
-        {/* Mobile-only quick-action tiles — three thumb-sized shortcuts
+        {/* Mobile-only quick-action tiles - three thumb-sized shortcuts
             (Call / WhatsApp / Directions) placed above the two-column
             grid so a hungry visitor gets to action in one tap without
             scrolling past the whole contact card first. Hidden on md+
@@ -213,7 +213,7 @@ export function Contact() {
                   </ul>
                 </div>
 
-                {/* CTA stack — stacks vertically on very narrow phones
+                {/* CTA stack - stacks vertically on very narrow phones
                     so labels stay readable; goes back to a row from
                     460px+. */}
                 <div className="flex flex-col gap-3 border-t border-white/10 pt-6 min-[460px]:flex-row min-[460px]:flex-wrap">
@@ -295,7 +295,7 @@ export function Contact() {
                   <div>
                     <div className="eyebrow text-saffron">Enquiry received</div>
                     <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-cream md:text-3xl">
-                      Shukriya — we&apos;ll call you.
+                      Shukriya - we&apos;ll call you.
                     </h3>
                     <p className="mt-3 max-w-sm text-sm leading-relaxed text-cream/70">
                       A member of the Ismail Biryani family will confirm your
@@ -334,7 +334,7 @@ export function Contact() {
                     Reserve, cater or just say hi.
                   </h3>
                   <p className="mt-3 text-cream/70">
-                    Tell us the occasion — we will handcraft the plan.
+                    Tell us the occasion - we will handcraft the plan.
                   </p>
 
                   <div className="mt-8 grid gap-5">
@@ -343,7 +343,7 @@ export function Contact() {
                       label="Full name"
                       placeholder="Your good name"
                     />
-                    {/* Phone + Date — stacks on tiny phones (< 480px) so each
+                    {/* Phone + Date - stacks on tiny phones (< 480px) so each
                         input gets full width, then goes to two-up. */}
                     <div className="grid gap-5 min-[480px]:grid-cols-2">
                       <Field

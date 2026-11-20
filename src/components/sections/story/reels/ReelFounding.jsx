@@ -29,7 +29,7 @@ export function ReelFounding({ chapter, active, index, total, mobile = false }) 
           paddingRight: 'var(--reel-safe-right)',
         }}
       >
-        {/* Left — copy stack */}
+        {/* Left - copy stack */}
         <div className="relative z-20 flex w-full max-w-lg flex-col justify-center gap-8 md:max-w-xl">
           <ReelCopy
             chapter={chapter.chapter}
@@ -42,7 +42,7 @@ export function ReelFounding({ chapter, active, index, total, mobile = false }) 
           {/* Hairline + kicker connects the paragraph to the year */}
           <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.32em] text-[color:var(--reel-ink-muted)]">
             <span className="h-px w-8 bg-[color:var(--reel-accent)]/60" />
-            <span>The year the handi first opened</span>
+            <span>The year our biryani began</span>
           </div>
 
           <KineticYear
@@ -54,7 +54,7 @@ export function ReelFounding({ chapter, active, index, total, mobile = false }) 
           />
         </div>
 
-        {/* Right — vintage Polaroid (anchored inside the dock-safe zone) */}
+        {/* Right - vintage Polaroid (anchored inside the dock-safe zone) */}
         <motion.div
           initial={{ opacity: 0, y: 30, rotate: 2 }}
           animate={
@@ -84,7 +84,7 @@ export function ReelFounding({ chapter, active, index, total, mobile = false }) 
         </motion.div>
       </div>
 
-      {/* Artifacts (desktop only — mobile stays clean) */}
+      {/* Artifacts (desktop only - mobile stays clean) */}
       <Artifact
         active={active}
         delay={0.5}
@@ -124,7 +124,7 @@ export function ReelFounding({ chapter, active, index, total, mobile = false }) 
         }}
       />
 
-      {/* Recipe journal watermark — hand-drawn open book anchors the middle
+      {/* Recipe journal watermark - hand-drawn open book anchors the middle
           of the composition and ties the copy on the left to the Polaroid on
           the right. Sits above the ambient doodles (z-[1]) but below the copy
           (z-20) and the Polaroid (z-10), so it reads as a soft background
@@ -181,11 +181,11 @@ function RecipeJournalMark({ active }) {
       {/* Spine */}
       <line x1="50" y1="6" x2="50" y2="65" strokeDasharray="0.9 0.9" strokeWidth="0.28" opacity="0.65" />
 
-      {/* Corner curls — top-left and top-right */}
+      {/* Corner curls - top-left and top-right */}
       <path d="M8 12 C 12 10, 14 10, 14 14" strokeWidth="0.32" opacity="0.7" />
       <path d="M92 12 C 88 10, 86 10, 86 14" strokeWidth="0.32" opacity="0.7" />
 
-      {/* LEFT PAGE — handwritten recipe lines */}
+      {/* LEFT PAGE - handwritten recipe lines */}
       <g strokeWidth="0.28" opacity="0.75">
         <path d="M12 16 L 42 16" strokeDasharray="0.9 0.5" />
         <path d="M12 22 L 40 22.5" strokeDasharray="0.9 0.5" />
@@ -209,7 +209,7 @@ function RecipeJournalMark({ active }) {
         i
       </text>
 
-      {/* RIGHT PAGE — header */}
+      {/* RIGHT PAGE - header */}
       <g stroke="none" fill="currentColor" opacity="0.9">
         <text x="56" y="18" fontSize="4.4" fontWeight="800" letterSpacing="0.15">
           RECIPE
@@ -220,7 +220,7 @@ function RecipeJournalMark({ active }) {
       </g>
       <line x1="56" y1="27" x2="88" y2="27" strokeWidth="0.32" opacity="0.6" />
 
-      {/* Right page — ingredient list with bullet dots */}
+      {/* Right page - ingredient list with bullet dots */}
       <g strokeWidth="0.28" opacity="0.8">
         <circle cx="57" cy="34" r="0.7" fill="currentColor" />
         <path d="M60 34 L 88 34" strokeDasharray="0.9 0.5" />
@@ -238,7 +238,7 @@ function RecipeJournalMark({ active }) {
         <path d="M60 58 L 82 58" strokeDasharray="0.9 0.5" />
       </g>
 
-      {/* Right page — signature flourish + "Ismail" scribble */}
+      {/* Right page - signature flourish + "Ismail" scribble */}
       <g stroke="currentColor" strokeWidth="0.35" opacity="0.6" fill="none">
         <path d="M64 63 C 66 61, 68 63, 70 61 C 72 59, 74 62, 76 60 C 78 58, 80 61, 82 59" />
       </g>
@@ -253,11 +253,11 @@ function RecipeJournalMark({ active }) {
 }
 
 /* ------------------------------------------------------------------
- * Mobile composition — Reel 1
+ * Mobile composition - Reel 1
  *
  * Vertical stack from top to bottom:
  *   1. Chapter chip + kicker (identity)
- *   2. Vintage Polaroid photo of the founder (the visual anchor —
+ *   2. Vintage Polaroid photo of the founder (the visual anchor -
  *      previously hidden on mobile, now front-and-centre)
  *   3. Kinetic "2005" year mark
  *   4. Title + body copy
@@ -304,7 +304,7 @@ function MobileReelFounding({ chapter, active, index, total }) {
           ) : null}
         </motion.div>
 
-        {/* Polaroid photo — the visual anchor for the founding story */}
+        {/* Polaroid photo - the visual anchor for the founding story */}
         <motion.div
           initial={{ opacity: 0, y: 24, rotate: -1.5 }}
           animate={
@@ -367,7 +367,7 @@ function MobileReelFounding({ chapter, active, index, total }) {
         </motion.div>
       </div>
 
-      {/* Ambient "Since 2005" stamp — top-right corner. Small on mobile
+      {/* Ambient "Since 2005" stamp - top-right corner. Small on mobile
           so it decorates without stealing focus from the Polaroid. */}
       <Artifact
         active={active}

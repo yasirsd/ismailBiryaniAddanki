@@ -7,7 +7,7 @@ export function Gallery() {
   return (
     <section
       id="gallery"
-      aria-label="Gallery — a look inside the kitchen and the restaurant"
+      aria-label="Gallery - a look inside the kitchen and the restaurant"
       className="section-blend-t blend-t-dark section-py relative overflow-hidden bg-cream dark:bg-luxury-black"
     >
       <div className="container-luxury">
@@ -36,6 +36,9 @@ export function Gallery() {
 }
 
 function GalleryItem({ img, index }) {
+  // Some source photos have empty margin around the food. A resting
+  // scale above 1 crops that margin away without letterboxing.
+  const zoom = img.zoom ?? 1
   return (
     <motion.figure
       initial={{ opacity: 0, y: 50, scale: 0.96 }}
@@ -48,12 +51,12 @@ function GalleryItem({ img, index }) {
       }}
       className={cn(
         'group relative overflow-hidden rounded-[1.75rem] border border-black/5 shadow-[0_30px_80px_-40px_rgba(17,17,17,0.35)] dark:border-white/10 dark:shadow-[0_30px_80px_-40px_rgba(0,0,0,0.7)]',
-        // Mobile: keep every tile square so the 2-col grid packs
-        // cleanly without row-span gaps. Tall tiles only reclaim their
-        // 3:5 vertical crop at md+ where the wider grid has room to
-        // absorb the offset row.
+        // Mobile stays square so the 2-column grid packs with no holes.
+        // At md+, a tall tile spans two rows and stretches to that full
+        // height. An aspect ratio here would shrink the tile and leave
+        // a band of page background above or below it.
         img.tall
-          ? 'aspect-square md:row-span-2 md:aspect-3/5'
+          ? 'aspect-square md:row-span-2 md:aspect-auto md:h-full'
           : 'aspect-square'
       )}
     >
@@ -62,11 +65,14 @@ function GalleryItem({ img, index }) {
         alt={img.alt}
         loading="lazy"
         className="h-full w-full object-cover"
-        initial={{ scale: 1.15 }}
-        whileInView={{ scale: 1 }}
+        style={
+          img.objectPosition ? { objectPosition: img.objectPosition } : undefined
+        }
+        initial={{ scale: 1.15 * zoom }}
+        whileInView={{ scale: zoom }}
         viewport={{ once: true }}
         transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
-        whileHover={{ scale: 1.06 }}
+        whileHover={{ scale: zoom * 1.06 }}
       />
       {/* Bottom gradient: always visible on mobile (subtle) so the
           caption underneath is readable without hover. Desktop uses

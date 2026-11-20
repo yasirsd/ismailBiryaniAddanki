@@ -87,7 +87,7 @@ export function Testimonials() {
           </div>
         </div>
 
-        {/* Controls row — on mobile: dots (primary) + arrows (secondary,
+        {/* Controls row - on mobile: dots (primary) + arrows (secondary,
             below cards, thumb-reachable). On desktop: dots only since
             arrows live in the header. */}
         <div className="mt-8 flex items-center justify-between gap-4 md:mt-10">

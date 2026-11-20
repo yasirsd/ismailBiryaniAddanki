@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Source videos are too large for GitHub (100 MB file limit).
+*.mp4
+*.mov
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

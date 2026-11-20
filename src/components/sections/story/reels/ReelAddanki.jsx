@@ -32,7 +32,7 @@ export function ReelAddanki({ chapter, active, index, total, mobile = false }) {
           paddingRight: 'var(--reel-safe-right)',
         }}
       >
-        {/* LEFT — big lead image with proprietor card layered at the bottom */}
+        {/* LEFT - big lead image with proprietor card layered at the bottom */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
@@ -42,7 +42,7 @@ export function ReelAddanki({ chapter, active, index, total, mobile = false }) {
           <div className="relative h-full overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9)]">
             <img
               src={IMG_MAIN}
-              alt="Ismail Biryani — the Addanki branch"
+              alt="Ismail Biryani - the Addanki branch"
               loading="lazy"
               className="h-full w-full object-cover"
               style={{ filter: 'var(--reel-img-filter)' }}
@@ -87,7 +87,7 @@ export function ReelAddanki({ chapter, active, index, total, mobile = false }) {
           </div>
         </motion.div>
 
-        {/* RIGHT — kinetic wordmark + copy stack + supporting image */}
+        {/* RIGHT - kinetic wordmark + copy stack + supporting image */}
         <div className="relative flex min-h-0 flex-col gap-6">
           {/* Kinetic ADDANKI top */}
           <div className="shrink-0">
@@ -170,7 +170,7 @@ export function ReelAddanki({ chapter, active, index, total, mobile = false }) {
 }
 
 /* ------------------------------------------------------------------
- * Mobile composition — Reel 3 (Addanki)
+ * Mobile composition - Reel 3 (Addanki)
  *
  * Full-bleed branch photograph fills the top ~55% of the reel with the
  * proprietor card overlaid at the bottom of the image; copy stack sits
@@ -200,7 +200,7 @@ function MobileReelAddanki({ chapter, active, index, total }) {
           <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)]">
             <img
               src={IMG_MAIN}
-              alt="Ismail Biryani — the Addanki branch"
+              alt="Ismail Biryani - the Addanki branch"
               loading="lazy"
               className="h-full w-full object-cover"
               style={{ filter: 'var(--reel-img-filter)' }}

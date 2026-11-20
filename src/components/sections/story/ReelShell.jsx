@@ -48,10 +48,10 @@ export function ReelShell({ tone, index, total, children, className }) {
         // half of the viewport on phones without any per-reel overrides.
       }}
     >
-      {/* Ambient thematic doodles — sit above the bg gradient, below content. */}
+      {/* Ambient thematic doodles - sit above the bg gradient, below content. */}
       <ReelBackdrop tone={tone} />
 
-      {/* Left seam-blend — fades this reel's leftmost stripe into the shared
+      {/* Left seam-blend - fades this reel's leftmost stripe into the shared
           warm-black so the previous reel's right seam meets it seamlessly. */}
       <div
         aria-hidden
@@ -60,7 +60,7 @@ export function ReelShell({ tone, index, total, children, className }) {
           background: `linear-gradient(to right, ${SEAM_TONE} 0%, rgba(8,5,2,0.55) 35%, transparent 100%)`,
         }}
       />
-      {/* Right seam-blend — mirror of the left. */}
+      {/* Right seam-blend - mirror of the left. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-y-0 right-0 z-[2] w-[18vw] max-w-[280px]"
@@ -108,7 +108,7 @@ export function ReelShell({ tone, index, total, children, className }) {
 }
 
 /**
- * Standard title block used by most reels — chip + kicker + title + body.
+ * Standard title block used by most reels - chip + kicker + title + body.
  */
 export function ReelCopy({
   chapter,

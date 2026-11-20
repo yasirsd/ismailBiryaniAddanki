@@ -10,10 +10,10 @@ import { useEffect, useState } from 'react'
  * lazy initializer that reads `window.matchMedia` on the first render.
  * If it defaulted to `false` and only flipped in a subsequent effect,
  * components that render entirely different DOM subtrees on the two
- * branches (e.g. DumReveal / StoryScroll — desktop pinned cinema vs
+ * branches (e.g. DumReveal / StoryScroll - desktop pinned cinema vs
  * mobile vertical stack) would mount the wrong tree first, let GSAP
  * inject `pin-spacer` wrappers into the DOM, then swap the whole
- * subtree — and React would explode with `NotFoundError: Failed to
+ * subtree - and React would explode with `NotFoundError: Failed to
  * execute 'removeChild'` because the children it's trying to unmount
  * have been relocated by GSAP under the pin-spacer.
  *

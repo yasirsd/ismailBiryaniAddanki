@@ -4,7 +4,7 @@ import { Component } from 'react'
  * Recovers the app from transient DOM reconciliation errors caused by
  * third-party scripts (browser translation extensions, ad blockers, password
  * managers, etc.) that mutate the DOM between React's render and commit
- * phases — most commonly surfacing as:
+ * phases - most commonly surfacing as:
  *
  *   NotFoundError: Failed to execute 'insertBefore' on 'Node'
  *

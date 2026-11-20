@@ -66,7 +66,7 @@ export default function App() {
         <SmoothScroll>
           <StructuredData />
 
-        {/* Skip-to-content link — invisible until keyboard-focused, then
+        {/* Skip-to-content link - invisible until keyboard-focused, then
             appears as a chip in the top-left. Meets WCAG 2.4.1 by
             letting keyboard users bypass the fixed navbar. */}
         <a
@@ -131,7 +131,7 @@ export default function App() {
 
         <Footer />
 
-        {/* Desktop-only floating actions (WhatsApp + back-to-top) —
+        {/* Desktop-only floating actions (WhatsApp + back-to-top) -
             mobile uses the persistent BottomNav below instead. */}
         <FloatingActions />
 

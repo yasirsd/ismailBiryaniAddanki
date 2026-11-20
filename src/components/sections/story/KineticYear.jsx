@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 /**
- * Massive editorial year/label typography — the visual anchor of each reel.
+ * Massive editorial year/label typography - the visual anchor of each reel.
  * Mixes solid + outlined characters, animates in char-by-char.
  */
 export function KineticYear({

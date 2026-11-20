@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 /**
- * Small "museum object" that floats in a reel composition — recipe card,
+ * Small "museum object" that floats in a reel composition - recipe card,
  * ticket stub, stamp, badge, etc. Each one drifts subtly on its own timeline.
  */
 export function Artifact({

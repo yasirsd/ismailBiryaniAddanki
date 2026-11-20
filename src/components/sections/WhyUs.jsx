@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import {
-  CookingPot,
+  ChefHat,
   Crown,
   Drumstick,
   Flame,
@@ -17,7 +17,7 @@ const iconMap = {
   Flame,
   Wheat,
   Drumstick,
-  CookingPot,
+  ChefHat,
   Users,
   Leaf,
   HeartHandshake,
@@ -48,7 +48,7 @@ export function WhyUs() {
               <span className="gradient-text-gold">crafted daily.</span>
             </>
           }
-          subtitle="Eight quiet promises that go into every plate — from the rice we age to the way we greet you at the door."
+          subtitle="Eight quiet promises that go into every plate - from the rice we age to the way we greet you at the door."
           align="left"
           className="max-w-3xl"
         />
@@ -100,6 +100,11 @@ function BentoCard({ item, index }) {
             aria-hidden
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover opacity-45 transition-all duration-1000 group-hover:scale-110 group-hover:opacity-60"
+            style={
+              item.objectPosition
+                ? { objectPosition: item.objectPosition }
+                : undefined
+            }
           />
           <div className="absolute inset-0 bg-linear-to-tr from-black/85 via-black/40 to-transparent" />
         </>

@@ -1,18 +1,19 @@
 import { motion } from 'framer-motion'
+import { lassiPic } from '@/assets/images'
 import { Heart, Users } from 'lucide-react'
 import { ReelShell, ReelCopy } from '../ReelShell'
 import { KineticYear } from '../KineticYear'
 
 /**
- * Reel 5 — Today (2026). Magazine-cover layout: left column is a text spread
+ * Reel 5 - Today (2026). Magazine-cover layout: left column is a text spread
  * (kinetic 2026 + copy + accent tile); right column is a 5-tile bento
- * collage. Both columns fill the reel top-to-bottom — no empty bands.
+ * collage. Both columns fill the reel top-to-bottom - no empty bands.
  */
 
 const tiles = [
   {
-    src: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=1400&q=85',
-    label: 'The first breath',
+    src: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1400&q=85',
+    label: 'Dum biryani',
     span: 'col-span-8 row-span-3',
     delay: 0.15,
   },
@@ -23,7 +24,8 @@ const tiles = [
     delay: 0.22,
   },
   {
-    src: 'https://images.unsplash.com/photo-1638176067000-9e2545bb54c8?auto=format&fit=crop&w=1200&q=85',
+    src: lassiPic,
+    objectPosition: '50% 68%',
     label: 'Saffron lassi',
     span: 'col-span-4 row-span-3',
     delay: 0.32,
@@ -65,7 +67,7 @@ export function ReelToday({ chapter, active, index, total, mobile = false }) {
           paddingRight: 'var(--reel-safe-right)',
         }}
       >
-        {/* LEFT — kinetic year + copy + live stats tile */}
+        {/* LEFT - kinetic year + copy + live stats tile */}
         <div className="relative flex min-h-0 flex-col justify-between gap-6">
           {/* Kinetic 2026 */}
           <div className="shrink-0">
@@ -140,7 +142,7 @@ export function ReelToday({ chapter, active, index, total, mobile = false }) {
           </motion.div>
         </div>
 
-        {/* RIGHT — bento collage that fills the reel top-to-bottom */}
+        {/* RIGHT - bento collage that fills the reel top-to-bottom */}
         <div className="relative grid min-h-0 grid-cols-12 grid-rows-5 gap-3 md:gap-4">
           {tiles.map((t, i) => (
             <motion.figure
@@ -163,7 +165,10 @@ export function ReelToday({ chapter, active, index, total, mobile = false }) {
                 alt=""
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                style={{ filter: 'var(--reel-img-filter)' }}
+                style={{
+                  filter: 'var(--reel-img-filter)',
+                  objectPosition: t.objectPosition,
+                }}
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-linear-to-t from-black/80 via-black/10 to-transparent p-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-cream">
                 <span className="truncate">{t.label}</span>
@@ -180,7 +185,7 @@ export function ReelToday({ chapter, active, index, total, mobile = false }) {
 }
 
 /* ------------------------------------------------------------------
- * Mobile composition — Reel 5 (Today, 2026)
+ * Mobile composition - Reel 5 (Today, 2026)
  *
  * Vertical: kinetic "2026" → title/body → 2×2 image bento (top-left is
  * the "hero" tile) → live-stats card. The desktop 12×5 grid is scaled
@@ -254,7 +259,10 @@ function MobileReelToday({ chapter, active, index, total }) {
                 alt=""
                 loading="lazy"
                 className="h-full w-full object-cover"
-                style={{ filter: 'var(--reel-img-filter)' }}
+                style={{
+                  filter: 'var(--reel-img-filter)',
+                  objectPosition: t.objectPosition,
+                }}
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-linear-to-t from-black/80 via-black/10 to-transparent p-2 text-[9px] font-semibold uppercase tracking-[0.24em] text-cream">
                 <span className="truncate">{t.label}</span>
@@ -263,7 +271,7 @@ function MobileReelToday({ chapter, active, index, total }) {
           ))}
         </div>
 
-        {/* Live stats — inline row */}
+        {/* Live stats - inline row */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}

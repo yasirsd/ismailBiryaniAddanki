@@ -1,3 +1,5 @@
+import { premiumPic } from '@/assets/images'
+
 export const whyItems = [
   {
     id: 'w1',
@@ -26,8 +28,8 @@ export const whyItems = [
   {
     id: 'w4',
     title: 'Authentic Dum Process',
-    desc: 'Sealed handi, low flame, no shortcuts.',
-    icon: 'CookingPot',
+    desc: 'Slow dum, low flame, no shortcuts.',
+    icon: 'ChefHat',
     span: 'md:col-span-2',
     tone: 'dark',
     image:
@@ -36,7 +38,7 @@ export const whyItems = [
   {
     id: 'w5',
     title: 'Family Experience',
-    desc: 'Handi opened at your table — every single time.',
+    desc: 'Biryani served at your table - every single time.',
     icon: 'Users',
     tone: 'cream',
   },
@@ -61,7 +63,7 @@ export const whyItems = [
     icon: 'Crown',
     span: 'md:col-span-2',
     tone: 'gold',
-    image:
-      'https://images.unsplash.com/photo-1633945274309-2c16c31e77b5?auto=format&fit=crop&w=1400&q=85',
+    image: premiumPic,
+    objectPosition: '50% 62%',
   },
 ]

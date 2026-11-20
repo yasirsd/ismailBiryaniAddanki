@@ -29,7 +29,7 @@ export function Hero() {
     <section
       id="top"
       ref={ref}
-      aria-label="Ismail Biryani — the art of authentic Hyderabadi Dum"
+      aria-label="Ismail Biryani - the art of authentic Hyderabadi Dum"
       className="min-h-hero relative isolate overflow-hidden bg-luxury-black text-cream"
     >
       {/* Backdrop: Addanki branch, graded */}
@@ -91,7 +91,7 @@ export function Hero() {
         style={{ opacity: textOpacity, y: textY }}
         className="min-h-hero container-luxury relative z-10 grid grid-cols-1 items-center gap-10 pb-16 pt-24 sm:pt-28 md:grid-cols-[minmax(0,1.55fr)_minmax(320px,1fr)] md:gap-14 md:pb-32 md:pt-40"
       >
-        {/* LEFT — invitation */}
+        {/* LEFT - invitation */}
         <div className="max-w-3xl">
           {/* Location chip */}
           <motion.div
@@ -194,22 +194,22 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* MOBILE — Compact live status card. Slots into the left column on
+          {/* MOBILE - Compact live status card. Slots into the left column on
               phones (right column is hidden below md) so the most critical
-              business info — open / closed, hours, Call / WhatsApp /
-              Directions — is visible without hunting. */}
+              business info - open / closed, hours, Call / WhatsApp /
+              Directions - is visible without hunting. */}
           <div className="mt-8 md:hidden">
             <OpenNowCard variant="compact" />
           </div>
         </div>
 
-        {/* RIGHT — Full OpenNowCard on desktop only */}
+        {/* RIGHT - Full OpenNowCard on desktop only */}
         <div className="hidden justify-self-end md:block">
           <OpenNowCard />
         </div>
       </motion.div>
 
-      {/* Scroll cue (desktop only — mobile has the compact status card in
+      {/* Scroll cue (desktop only - mobile has the compact status card in
           this space so the cue would just add noise) */}
       <motion.div
         style={{ opacity: textOpacity }}

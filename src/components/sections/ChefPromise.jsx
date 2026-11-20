@@ -46,13 +46,13 @@ export function ChefPromise() {
 
         <footer className="mt-4">
           <div className="eyebrow text-luxury-black/50 dark:text-cream/50">
-            — Our promise
+            - Our promise
           </div>
           <div className="mt-3 text-lg font-semibold text-luxury-black dark:text-cream">
             {site.proprietor}
           </div>
           <div className="text-sm text-neutral-500 dark:text-neutral-400">
-            Proprietor, Ismail Biryani — Addanki
+            Proprietor, Ismail Biryani - Addanki
           </div>
         </footer>
       </motion.div>

@@ -4,7 +4,7 @@ import { ReelShell, ReelCopy } from '../ReelShell'
 import { KineticYear } from '../KineticYear'
 import { Steam } from '@/components/effects/Steam'
 
-const HANDI =
+const BIRYANI_PLATE =
   'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1800&q=90'
 
 const ingredients = [
@@ -33,7 +33,7 @@ const ingredients = [
     id: 'fire',
     icon: Flame,
     label: 'Whisper of flame',
-    body: 'Sealed handi, low fire, no shortcuts.',
+    body: 'Slow dum, low fire, no shortcuts.',
     n: '04',
   },
 ]
@@ -61,7 +61,7 @@ export function ReelCraft({ chapter, active, index, total, mobile = false }) {
           paddingRight: 'var(--reel-safe-right)',
         }}
       >
-        {/* LEFT — handi hero + DUM wordmark */}
+        {/* LEFT - biryani plate + DUM wordmark */}
         <div className="relative flex min-h-0 flex-col justify-center gap-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.94, y: 30 }}
@@ -73,11 +73,11 @@ export function ReelCraft({ chapter, active, index, total, mobile = false }) {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             className="relative mx-auto w-full max-w-[500px]"
           >
-            {/* Circular handi image */}
+            {/* Circular biryani plate */}
             <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-full border border-white/10 shadow-[0_60px_140px_-40px_rgba(0,0,0,0.9)]">
               <img
-                src={HANDI}
-                alt="A sealed copper handi resting on charcoal"
+                src={BIRYANI_PLATE}
+                alt="A plate of Hyderabadi dum biryani"
                 loading="lazy"
                 className="h-full w-full object-cover"
                 style={{ filter: 'var(--reel-img-filter)' }}
@@ -111,7 +111,7 @@ export function ReelCraft({ chapter, active, index, total, mobile = false }) {
             </div>
           </motion.div>
 
-          {/* DUM wordmark under handi */}
+          {/* DUM wordmark under the plate */}
           <div className="flex justify-center">
             <KineticYear
               label="DUM"
@@ -124,7 +124,7 @@ export function ReelCraft({ chapter, active, index, total, mobile = false }) {
           </div>
         </div>
 
-        {/* RIGHT — copy + 2x2 ingredient bento */}
+        {/* RIGHT - copy + 2x2 ingredient bento */}
         <div className="relative flex min-h-0 flex-col gap-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -197,7 +197,7 @@ function IngredientChip({ ing, active, idx }) {
 }
 
 /* ------------------------------------------------------------------
- * Mobile composition — Reel 4 (Craft / Dum)
+ * Mobile composition - Reel 4 (Craft / Dum)
  *
  * Editorial spread designed to fit one phone viewport without any
  * hidden swipe content:
@@ -206,10 +206,10 @@ function IngredientChip({ ing, active, idx }) {
  *      its base like a magazine cover. Chapter chip pinned top-left,
  *      steam curls in the top-right corner.
  *   2. Tight copy block: kicker + title + poetic body.
- *   3. 2×2 ingredient grid — all four visible at once (no horizontal
+ *   3. 2×2 ingredient grid - all four visible at once (no horizontal
  *      scroll, no undiscoverable off-screen content).
  *
- * We deliberately drop the earlier circular handi + separate wordmark
+ * We deliberately drop the earlier circular plate + separate wordmark
  * arrangement because on a 375px viewport it forced four stacked
  * blocks into the same vertical budget the BottomNav already consumes
  * ~76px of.
@@ -228,7 +228,7 @@ function MobileReelCraft({ chapter, active, index, total }) {
           paddingRight: 'var(--reel-safe-left)',
         }}
       >
-        {/* Hero — capsule handi image with DUM wordmark overlay */}
+        {/* Hero - capsule biryani image with DUM wordmark overlay */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 16 }}
           animate={
@@ -241,8 +241,8 @@ function MobileReelCraft({ chapter, active, index, total }) {
         >
           <div className="relative aspect-[16/11]">
             <img
-              src={HANDI}
-              alt="A sealed copper handi resting on glowing charcoal"
+              src={BIRYANI_PLATE}
+              alt="A plate of Hyderabadi dum biryani"
               loading="lazy"
               className="h-full w-full object-cover"
               style={{ filter: 'var(--reel-img-filter)' }}
@@ -251,7 +251,7 @@ function MobileReelCraft({ chapter, active, index, total }) {
                 consistent, legible base regardless of image contents. */}
             <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/25 to-black/25" />
 
-            {/* Accent glow inside the frame — echoes the ReelShell
+            {/* Accent glow inside the frame - echoes the ReelShell
                 palette (--reel-accent) for tonal coherence. */}
             <div
               aria-hidden
@@ -262,8 +262,8 @@ function MobileReelCraft({ chapter, active, index, total }) {
               }}
             />
 
-            {/* Steam curls in the top-right corner — hints at the
-                still-cooking handi below. */}
+            {/* Steam curls in the top-right corner - hints at the
+                biryani below. */}
             <div className="pointer-events-none absolute right-2 top-2 h-24 w-16 opacity-70">
               <Steam count={2} />
             </div>
@@ -287,7 +287,7 @@ function MobileReelCraft({ chapter, active, index, total }) {
           </div>
         </motion.div>
 
-        {/* Copy block — kicker, title, poetic body */}
+        {/* Copy block - kicker, title, poetic body */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
@@ -315,7 +315,7 @@ function MobileReelCraft({ chapter, active, index, total }) {
           ) : null}
         </motion.div>
 
-        {/* 2×2 ingredient grid — all four ingredients visible at once,
+        {/* 2×2 ingredient grid - all four ingredients visible at once,
             no hidden horizontal scroll to discover. */}
         <div
           className="mt-1 grid grid-cols-2 gap-2.5"

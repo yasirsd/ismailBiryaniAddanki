@@ -1,16 +1,21 @@
+import { fryPic, lassiPic, nizamiPic } from '@/assets/images'
+
 export const galleryImages = [
   {
     id: 'g1',
-    src: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=2000&q=85',
-    alt: 'A steaming plate of Hyderabadi chicken dum biryani',
+    src: fryPic,
+    objectPosition: '55% 48%',
+    alt: 'A close plate of chicken dum biryani',
     tall: true,
-    caption: 'The first breath of dum.',
+    caption: 'The first steam of dum.',
   },
   {
     id: 'g2',
-    src: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=2000&q=85',
-    alt: 'Copper handi on charcoal fire',
-    caption: 'Copper, charcoal, patience.',
+    src: nizamiPic,
+    objectPosition: '36% 58%',
+    zoom: 1.72,
+    alt: 'Chicken biryani served on a plate',
+    caption: 'Basmati, saffron, patience.',
   },
   {
     id: 'g3',
@@ -20,8 +25,9 @@ export const galleryImages = [
   },
   {
     id: 'g4',
-    src: 'https://images.unsplash.com/photo-1701579231378-3726490a407b?auto=format&fit=crop&w=2000&q=85',
-    alt: 'Hand-cut mutton biryani close up',
+    src: 'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=2000&q=85',
+    objectPosition: '50% 46%',
+    alt: 'Mutton biryani served on a platter',
     tall: true,
     caption: 'Four hours on a whisper of flame.',
   },
@@ -29,7 +35,7 @@ export const galleryImages = [
     id: 'g5',
     src: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=2000&q=85',
     alt: 'Golden Andhra chicken 65',
-    caption: 'Andhra 65 — the opening act.',
+    caption: 'Andhra 65 - the opening act.',
   },
   {
     id: 'g6',
@@ -46,7 +52,8 @@ export const galleryImages = [
   },
   {
     id: 'g8',
-    src: 'https://images.unsplash.com/photo-1638176067000-9e2545bb54c8?auto=format&fit=crop&w=2000&q=85',
+    src: lassiPic,
+    objectPosition: '50% 68%',
     alt: 'Saffron kesar lassi in a silver glass',
     caption: 'Saffron. Silver. Ceremony.',
   },

@@ -455,11 +455,11 @@
    * sharp line. Each side reads its own CSS custom property so a section
    * can bleed differently into what sits above vs below.
    *
-   *   .section-blend-t          — top-edge fade
-   *   .section-blend-b          — bottom-edge fade
-   *   --blend-t-from / --blend-b-from — colour to bleed IN from the
+   *   .section-blend-t          - top-edge fade
+   *   .section-blend-b          - bottom-edge fade
+   *   --blend-t-from / --blend-b-from - colour to bleed IN from the
    *                                     neighbour (defaults transparent)
-   *   --blend-h                 — height of the fade band (default 6rem)
+   *   --blend-h                 - height of the fade band (default 6rem)
    * ------------------------------------------------------------------ */
   .section-blend-t,
   .section-blend-b {
@@ -517,28 +517,25 @@
 }
 
 /* ------------------------------------------------------------------
- * Mobile Story — Vertical Reel Cinema.
+ * Mobile Story - Vertical Reel Cinema.
  *
  * On phones (< 768px) the Story section switches from horizontal-pin
  * cinema to a vertical stack of full-screen chapters. Native CSS
  * scroll-snap glides the viewport to the next reel as the user flicks,
- * so we don't need a JS gesture controller — the browser handles it.
+ * so we don't need a JS gesture controller - the browser handles it.
  *
  * Snap only kicks in when the user is near a reel (proximity), so
- * scrolling through Hero → StoryIntro → Marquee → Menu → … feels
+ * scrolling through Hero → Story → Marquee → Menu → … feels
  * completely normal; only when passing through the story does the
  * viewport gently lock onto each chapter.
  *
- * `[data-mobile-reel]` is set by MobileStory on each reel wrapper;
- * `[data-story-intro]` on the intro block lets it snap too so the
- * transition from intro → chapter 1 feels intentional.
+ * `[data-mobile-reel]` is set by MobileStory on each reel wrapper.
  * ------------------------------------------------------------------ */
 @media (max-width: 767.98px) {
   html {
     scroll-snap-type: y proximity;
   }
-  [data-mobile-reel],
-  [data-story-intro] {
+  [data-mobile-reel] {
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
@@ -645,7 +642,7 @@ summary:focus-visible {
   }
 }
 
-/* prefers-contrast: more — bump borders and eyebrow text a touch so
+/* prefers-contrast: more - bump borders and eyebrow text a touch so
    the site stays legible for users who request high contrast without
    fully flipping to forced-colors mode. */
 @media (prefers-contrast: more) {

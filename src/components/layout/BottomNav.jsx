@@ -11,10 +11,10 @@ import { cn, prefersReducedMotion } from '@/lib/utils'
  * nav is dramatically more usable than a top hamburger. The four items
  * are the four things a hungry visitor actually wants to do:
  *
- *   Home    — jump back to the top (also acts as "back to top")
- *   Menu    — browse dishes
- *   WhatsApp — chat with the restaurant right now
- *   Reserve — quick jump to the reservation form (highlighted CTA)
+ *   Home    - jump back to the top (also acts as "back to top")
+ *   Menu    - browse dishes
+ *   WhatsApp - chat with the restaurant right now
+ *   Reserve - quick jump to the reservation form (highlighted CTA)
  *
  * Behaviour:
  *   - Only renders on `md:hidden` (< 768px).

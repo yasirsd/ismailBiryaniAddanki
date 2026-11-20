@@ -6,12 +6,12 @@ import { cn } from '@/lib/utils'
  *
  * Two independent surfaces:
  *
- *  1. Desktop dock — vertical rail on the right edge of the pinned
+ *  1. Desktop dock - vertical rail on the right edge of the pinned
  *     horizontal cinema. Shows all chapters, highlights the active
  *     one, hover reveals the label. Fixed position inside the pinned
  *     container.
  *
- *  2. Mobile dock — thumb-reachable bottom bar (fixed to viewport)
+ *  2. Mobile dock - thumb-reachable bottom bar (fixed to viewport)
  *     with taps that smooth-scroll to each chapter. Only rendered
  *     when the mobile story is on-screen (controlled by the parent),
  *     using the `variant="mobile-fixed"` prop.
@@ -38,7 +38,7 @@ export function ChapterDock({
 
   return (
     <>
-      {/* Desktop dock — vertical stack, hugs the right edge tightly */}
+      {/* Desktop dock - vertical stack, hugs the right edge tightly */}
       <div className="pointer-events-none absolute right-2 top-24 bottom-20 z-40 hidden items-center md:flex lg:right-3">
         <div className="pointer-events-auto flex flex-col gap-0.5 rounded-3xl border border-white/10 bg-black/40 px-2 py-4 backdrop-blur-xl">
           {chapters.map((c, i) => {
@@ -85,7 +85,7 @@ export function ChapterDock({
         </div>
       </div>
 
-      {/* Mobile progress pill — legacy top-anchored version used by the
+      {/* Mobile progress pill - legacy top-anchored version used by the
           horizontal cinema on `md` tablets. On phones (< md) the story
           uses `variant="mobile-fixed"` and this pill isn't rendered. */}
       <div className="pointer-events-none absolute inset-x-0 top-24 z-40 flex justify-center md:hidden">
@@ -107,7 +107,7 @@ export function ChapterDock({
 }
 
 /**
- * Mobile Story dock — a thumb-reachable bar fixed to the bottom of the
+ * Mobile Story dock - a thumb-reachable bar fixed to the bottom of the
  * viewport that follows the user while they're inside the Story
  * section. Tap any dot to smooth-scroll to that chapter.
  *

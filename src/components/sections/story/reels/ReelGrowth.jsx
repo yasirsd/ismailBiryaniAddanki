@@ -4,7 +4,7 @@ import { KineticYear } from '../KineticYear'
 import { Artifact, TicketStub } from '../Artifact'
 
 /**
- * Reel 2 — Growth. Stylised region map (illustrative, not cartographic) with
+ * Reel 2 - Growth. Stylised region map (illustrative, not cartographic) with
  * animated pins tracing the expansion from Ongole → Chimakurti → Addanki.
  */
 
@@ -37,7 +37,7 @@ export function ReelGrowth({ chapter, active, index, total, mobile = false }) {
           paddingRight: 'var(--reel-safe-right)',
         }}
       >
-        {/* Left — copy card + year, tight vertical rhythm */}
+        {/* Left - copy card + year, tight vertical rhythm */}
         <div className="relative z-20 flex w-full max-w-md flex-col justify-center gap-5 md:w-[42%] md:gap-6">
           <ReelCopy
             chapter={chapter.chapter}
@@ -62,7 +62,7 @@ export function ReelGrowth({ chapter, active, index, total, mobile = false }) {
           />
         </div>
 
-        {/* Right — map */}
+        {/* Right - map */}
         <div className="relative hidden flex-1 items-center justify-center md:flex">
           <motion.svg
             viewBox="0 0 100 100"
@@ -178,7 +178,7 @@ export function ReelGrowth({ chapter, active, index, total, mobile = false }) {
         </div>
       </div>
 
-      {/* Stat callout — sits inside the safe zone */}
+      {/* Stat callout - sits inside the safe zone */}
       <Artifact
         active={active}
         delay={1.6}
@@ -214,7 +214,7 @@ export function ReelGrowth({ chapter, active, index, total, mobile = false }) {
 }
 
 /* ------------------------------------------------------------------
- * Mobile composition — Reel 2
+ * Mobile composition - Reel 2
  *
  * Vertical: chip → map (compact) → year → title/body → 8-branches
  * pill inline. Ticket-stub artifact floats at the bottom-left as a

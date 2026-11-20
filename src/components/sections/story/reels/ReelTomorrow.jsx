@@ -4,7 +4,7 @@ import { KineticYear } from '../KineticYear'
 import { Artifact } from '../Artifact'
 
 /**
- * Reel 6 — Tomorrow. Illustrative world silhouette with a saffron pin over
+ * Reel 6 - Tomorrow. Illustrative world silhouette with a saffron pin over
  * Addanki and dotted arcs radiating to future destinations.
  */
 
@@ -270,7 +270,7 @@ export function ReelTomorrow({ chapter, active, index, total, mobile = false }) 
 }
 
 /* ------------------------------------------------------------------
- * Mobile composition — Reel 6 (Tomorrow / world map)
+ * Mobile composition - Reel 6 (Tomorrow / world map)
  *
  * Vertical: faded NEXT wordmark background, then a compact world map
  * centered, then the boarding-pass artifact, then title + body at

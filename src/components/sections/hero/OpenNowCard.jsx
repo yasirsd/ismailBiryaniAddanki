@@ -6,8 +6,8 @@ import { site } from '@/data/site'
 
 // Machine-readable schedule (day-of-week 0=Sun ... 6=Sat).
 // Derived from site.branch.hours:
-//   Mon–Thu 11:00 AM — 11:00 PM
-//   Fri–Sun 11:00 AM — 12:00 AM (midnight)
+//   Mon–Thu 11:00 AM - 11:00 PM
+//   Fri–Sun 11:00 AM - 12:00 AM (midnight)
 // Close hour of 24 represents midnight (end-of-day).
 const SCHEDULE = {
   0: { open: 11, close: 24 },
@@ -52,10 +52,10 @@ const STATE_COLOR = {
 /**
  * Live restaurant status card used in the Hero.
  *
- * `variant="full"` (default) — desktop composition with big time, hours
+ * `variant="full"` (default) - desktop composition with big time, hours
  * detail rows, and stacked CTAs. Sits in the hero's right column.
  *
- * `variant="compact"` — mobile composition: horizontal status pill, tight
+ * `variant="compact"` - mobile composition: horizontal status pill, tight
  * hours row, and a 3-icon action strip (Call · WhatsApp · Directions).
  * Designed to sit at the bottom of the hero on phones so the most
  * important business info (are they open, how to reach them, where they
@@ -81,7 +81,7 @@ export function OpenNowCard({ className, variant = 'full' }) {
     hour12: true,
   })
   const today = SCHEDULE[now.getDay()]
-  const todayRange = `${formatHour(today.open)} — ${formatHour(today.close)}`
+  const todayRange = `${formatHour(today.open)} - ${formatHour(today.close)}`
 
   const waNumber = site.branch.whatsapp.replace(/\D/g, '')
   const waMessage = encodeURIComponent(
@@ -271,7 +271,7 @@ function IconChip({ children }) {
 }
 
 /* -----------------------------------------------------------------
- * CompactStatus — mobile hero card.
+ * CompactStatus - mobile hero card.
  * Single row of essential info (status + time), a tight hours line,
  * and a 3-icon action strip. Designed to sit at the bottom of the
  * hero on phones so the most important info is always visible.

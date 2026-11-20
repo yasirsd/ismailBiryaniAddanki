@@ -3,7 +3,7 @@ const words = [
   'Saffron',
   'Charcoal',
   'Sneha Farm',
-  'Copper Handi',
+  'Dum Biryani',
   'Dum',
   'Family',
   'Since 2005',

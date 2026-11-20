@@ -4,16 +4,16 @@
  * Ambient, hand-drawn ornament layer sitting *behind* each reel's content
  * (above the palette gradient, below the edge blends and safe-zone content).
  *
- * The doodles are subliminal — 5-9% opacity, fine 0.5-0.8px strokes, and use
+ * The doodles are subliminal - 5-9% opacity, fine 0.5-0.8px strokes, and use
  * `currentColor` so they inherit the reel's ink tone. Each chapter gets its
  * own thematic motif that quietly reinforces the story beat:
  *
- *   founding  — compass rose + spice scatter (finding the recipe)
- *   growth    — constellation of pins + dashed arcs (Ongole → Chimakurti)
- *   addanki   — lotus mandala + paisley (settling into the home branch)
- *   craft     — handi silhouette + rising steam (the dum ceremony)
- *   today     — spice galaxy + steam wisps (the living kitchen)
- *   tomorrow  — constellation + growth branches (the future)
+ *   founding  - compass rose + spice scatter (finding the recipe)
+ *   growth    - constellation of pins + dashed arcs (Ongole → Chimakurti)
+ *   addanki   - lotus mandala + paisley (settling into the home branch)
+ *   craft     - biryani plate silhouette + rising steam (the dum ceremony)
+ *   today     - spice galaxy + steam wisps (the living kitchen)
+ *   tomorrow  - constellation + growth branches (the future)
  */
 
 /* ---------- Doodle atoms ---------- */
@@ -123,7 +123,7 @@ function SteamCurls({ className }) {
   )
 }
 
-function HandiSilhouette({ className }) {
+function BiryaniPlateMark({ className }) {
   return (
     <svg
       viewBox="0 0 120 100"
@@ -135,31 +135,22 @@ function HandiSilhouette({ className }) {
       strokeLinejoin="round"
       aria-hidden
     >
-      {/* Steam curls above */}
-      <path d="M46 20 C 48 12, 44 8, 48 2" strokeWidth="0.5" opacity="0.75" />
-      <path d="M60 18 C 62 10, 58 6, 62 1" strokeWidth="0.5" opacity="0.85" />
-      <path d="M74 20 C 76 12, 72 8, 76 2" strokeWidth="0.5" opacity="0.75" />
-      {/* Handi rim */}
-      <ellipse cx="60" cy="34" rx="26" ry="4" />
-      {/* Handi body */}
-      <path d="M34 34 C 30 42, 28 54, 34 66 C 42 78, 78 78, 86 66 C 92 54, 90 42, 86 34" />
-      {/* Handi lid indication */}
-      <path
-        d="M40 34 C 44 30, 76 30, 80 34"
-        strokeDasharray="1.4 1.4"
-        opacity="0.7"
-      />
-      {/* Ladle */}
-      <path
-        d="M92 40 L 108 32 M 105 30 A 4 4 0 1 0 111 34 Z"
-        strokeWidth="0.6"
-        opacity="0.8"
-      />
+      {/* Steam curls above the rice */}
+      <path d="M48 28 C 50 20, 46 16, 50 8" strokeWidth="0.5" opacity="0.75" />
+      <path d="M60 26 C 62 18, 58 14, 62 6" strokeWidth="0.5" opacity="0.85" />
+      <path d="M72 28 C 74 20, 70 16, 74 8" strokeWidth="0.5" opacity="0.75" />
+      {/* Rice mound */}
+      <path d="M38 68 C 40 50, 48 40, 60 38 C 72 40, 80 50, 82 68" />
+      <path d="M50 56 C 52 54, 55 56, 53 58" strokeWidth="0.5" opacity="0.7" />
+      <path d="M66 52 C 68 50, 71 52, 69 54" strokeWidth="0.5" opacity="0.7" />
+      {/* Plate */}
+      <ellipse cx="60" cy="70" rx="34" ry="7" />
+      <ellipse cx="60" cy="68" rx="24" ry="4" opacity="0.65" />
       {/* Ground line */}
       <line
-        x1="24"
+        x1="18"
         y1="86"
-        x2="96"
+        x2="102"
         y2="86"
         strokeDasharray="1.2 1.8"
         opacity="0.5"
@@ -370,7 +361,7 @@ const backdropByTone = {
   ],
   craft: [
     {
-      Icon: HandiSilhouette,
+      Icon: BiryaniPlateMark,
       className:
         'absolute right-[5vw] top-[14vh] h-52 w-64 opacity-[0.06] md:h-64 md:w-80',
     },
