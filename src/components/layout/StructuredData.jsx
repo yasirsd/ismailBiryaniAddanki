@@ -39,7 +39,7 @@ export function StructuredData() {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: ['Friday', 'Saturday', 'Sunday'],
           opens: '11:00',
-          closes: '24:00',
+          closes: '00:00',
         },
       ],
       sameAs: [

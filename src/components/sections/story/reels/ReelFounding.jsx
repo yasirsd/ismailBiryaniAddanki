@@ -2,9 +2,10 @@ import { motion } from 'framer-motion'
 import { ReelShell, ReelCopy } from '../ReelShell'
 import { KineticYear } from '../KineticYear'
 import { Artifact, RecipeCard, StampBadge } from '../Artifact'
-import { founderPic } from '@/assets/images'
+import { founderPic, founderSrcSet } from '@/assets/images'
 
 const IMAGE = founderPic
+const IMAGE_SRCSET = founderSrcSet
 
 export function ReelFounding({ chapter, active, index, total, mobile = false }) {
   if (mobile) {
@@ -70,6 +71,8 @@ export function ReelFounding({ chapter, active, index, total, mobile = false }) 
             <div className="relative aspect-4/5 overflow-hidden bg-black/50">
               <img
                 src={IMAGE}
+                srcSet={IMAGE_SRCSET}
+                sizes="(max-width: 768px) 92vw, 440px"
                 alt="Syed Ismail Basha in the founding kitchen, Ongole, 2005"
                 loading="lazy"
                 className="h-full w-full object-cover"
@@ -318,6 +321,8 @@ function MobileReelFounding({ chapter, active, index, total }) {
           <div className="relative aspect-4/5 overflow-hidden bg-black/40">
             <img
               src={IMAGE}
+              srcSet={IMAGE_SRCSET}
+              sizes="240px"
               alt="Syed Ismail Basha in the founding kitchen, Ongole, 2005"
               loading="lazy"
               className="h-full w-full object-cover"

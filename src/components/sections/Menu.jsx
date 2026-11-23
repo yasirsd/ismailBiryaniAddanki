@@ -38,7 +38,7 @@ export function Menu() {
                 <span className="gradient-text-fire">Signature stories.</span>
               </>
             }
-            subtitle="Every biryani, every kebab, every dessert has a place in a bigger family recipe. Explore the categories."
+            subtitle="Biryani, curries, bread and rice from the Addanki table menu. Explore the categories."
           />
 
           <div className="hidden text-right md:block">
@@ -124,8 +124,7 @@ export function Menu() {
 
         <div className="mt-16 flex flex-col items-center gap-4">
           <p className="max-w-lg text-center text-neutral-500 dark:text-neutral-400">
-            Full menu available at the restaurant. Prices in INR. Family packs
-            and catering on request.
+            A selection from the table menu. Full menu at the restaurant. Prices in INR.
           </p>
           <Button asChild variant="primary" size="lg">
             <a href="#contact">

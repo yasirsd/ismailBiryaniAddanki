@@ -77,7 +77,7 @@ export function ReelCraft({ chapter, active, index, total, mobile = false }) {
             <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-full border border-white/10 shadow-[0_60px_140px_-40px_rgba(0,0,0,0.9)]">
               <img
                 src={BIRYANI_PLATE}
-                alt="A plate of Hyderabadi dum biryani"
+                alt="Chicken Dum Biryani"
                 loading="lazy"
                 className="h-full w-full object-cover"
                 style={{ filter: 'var(--reel-img-filter)' }}
@@ -242,7 +242,7 @@ function MobileReelCraft({ chapter, active, index, total }) {
           <div className="relative aspect-[16/11]">
             <img
               src={BIRYANI_PLATE}
-              alt="A plate of Hyderabadi dum biryani"
+              alt="Chicken Dum Biryani"
               loading="lazy"
               className="h-full w-full object-cover"
               style={{ filter: 'var(--reel-img-filter)' }}

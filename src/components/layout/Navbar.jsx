@@ -8,10 +8,8 @@ import {
   X,
 } from 'lucide-react'
 import { Logo } from './Logo'
-import { ThemeToggle } from './ThemeToggle'
 import { Button } from '@/components/ui/Button'
 import { site } from '@/data/site'
-import { cn } from '@/lib/utils'
 
 const links = [
   { label: 'Story', href: '#story' },
@@ -28,10 +26,27 @@ export function Navbar() {
   const drawerId = useId()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    // Tighten the top inset after the hero. Hysteresis keeps Lenis from
+    // flipping the padding while it eases across a single line.
+    let frame = 0
+    let active = false
+    const onScroll = () => {
+      if (frame) return
+      frame = window.requestAnimationFrame(() => {
+        frame = 0
+        const y = window.scrollY
+        const next = active ? y > 12 : y > 72
+        if (next === active) return
+        active = next
+        setScrolled(next)
+      })
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (frame) window.cancelAnimationFrame(frame)
+    }
   }, [])
 
   useEffect(() => {
@@ -59,7 +74,7 @@ export function Navbar() {
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed inset-x-0 top-0 z-[70] transition-all duration-500"
+        className="fixed inset-x-0 top-0 z-[70] transition-[padding-top] duration-500"
         style={{
           // Respect the iOS status-bar / notch inset so the nav pill isn't
           // clipped under the punch-hole camera on modern devices.
@@ -67,14 +82,7 @@ export function Navbar() {
         }}
       >
         <div className="container-luxury">
-          <div
-            className={cn(
-              'flex items-center justify-between rounded-full px-4 py-2.5 pr-2.5 transition-all duration-500',
-              scrolled
-                ? 'glass-strong shadow-[0_20px_60px_-30px_rgba(17,17,17,0.35)]'
-                : 'bg-transparent'
-            )}
-          >
+          <div className="flex items-center justify-between bg-transparent px-4 py-2.5 pr-2.5">
             <Logo />
 
             <nav
@@ -94,7 +102,6 @@ export function Navbar() {
             </nav>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle className="hidden sm:grid" />
               <Button
                 variant="primary"
                 size="sm"
@@ -144,7 +151,7 @@ export function Navbar() {
  *   - Large, thumb-reachable navigation typography
  *   - A "quick actions" tile row (Call / WhatsApp / Directions) that
  *     mirrors the BottomNav but with richer context/labels
- *   - Theme toggle and the primary "Reserve" CTA in the sticky footer
+ *   - The primary "Reserve" CTA in the sticky footer
  *
  * A tinted backdrop below the sheet closes on tap.
  * The sheet respects env(safe-area-inset-bottom) so the sticky footer
@@ -319,9 +326,8 @@ function MobileDrawer({ id, links, onClose }) {
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-3 border-t border-white/10 bg-luxury-black/95 px-5 py-4">
-          <ThemeToggle />
-          <Button asChild variant="gold" size="md" className="grow">
+        <div className="border-t border-white/10 bg-luxury-black/95 px-5 py-4">
+          <Button asChild variant="gold" size="md" className="w-full">
             <a href="#contact" onClick={onClose}>
               <Phone size={14} /> Reserve a table
             </a>

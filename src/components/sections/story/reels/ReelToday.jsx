@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { lassiPic } from '@/assets/images'
+import { diningPic, lassiPic, premiumPic } from '@/assets/images'
 import { Heart, Users } from 'lucide-react'
 import { ReelShell, ReelCopy } from '../ReelShell'
 import { KineticYear } from '../KineticYear'
@@ -13,12 +13,12 @@ import { KineticYear } from '../KineticYear'
 const tiles = [
   {
     src: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1400&q=85',
-    label: 'Dum biryani',
+    label: 'Chicken Dum Biryani',
     span: 'col-span-8 row-span-3',
     delay: 0.15,
   },
   {
-    src: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=85',
+    src: diningPic,
     label: 'Family table',
     span: 'col-span-4 row-span-2',
     delay: 0.22,
@@ -26,19 +26,20 @@ const tiles = [
   {
     src: lassiPic,
     objectPosition: '50% 68%',
-    label: 'Saffron lassi',
+    label: 'Lassi (Sweet / Salt)',
     span: 'col-span-4 row-span-3',
     delay: 0.32,
   },
   {
-    src: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=1200&q=85',
-    label: 'Andhra 65',
+    src: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1200&q=85',
+    label: 'Butter Chicken',
     span: 'col-span-4 row-span-2',
     delay: 0.4,
   },
   {
-    src: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1200&q=85',
-    label: 'Sweet ending',
+    src: premiumPic,
+    objectPosition: '50% 62%',
+    label: 'Veg. Biryani',
     span: 'col-span-4 row-span-2',
     delay: 0.48,
   },

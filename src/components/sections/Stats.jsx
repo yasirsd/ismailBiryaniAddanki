@@ -17,7 +17,7 @@ export function Stats() {
       </div>
 
       <div className="container-luxury relative">
-        <div className="grid gap-16 md:grid-cols-[1fr_1.15fr] md:gap-24">
+        <div className="grid gap-16 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ export function Stats() {
             </p>
           </motion.div>
 
-          <div ref={ref} className="grid grid-cols-2 gap-6 md:gap-8">
+          <div ref={ref} className="grid min-w-0 grid-cols-2 gap-6 md:gap-8">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -47,26 +47,42 @@ export function Stats() {
                   delay: 0.1 + i * 0.08,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-md"
+                className="relative min-w-0 rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md"
               >
-                <div className="flex items-baseline gap-1 text-6xl font-extrabold tracking-tight text-cream md:text-7xl">
-                  <AnimatedNumber
-                    className="tabular-nums"
-                    value={s.value}
-                    duration={2.4}
-                    play={inView}
-                  />
-                  <span className="text-saffron">{s.suffix}</span>
-                </div>
-                <div className="mt-6 text-lg font-semibold tracking-tight">
-                  {s.label}
-                </div>
-                <div className="mt-1 text-sm text-cream/60">{s.hint}</div>
-
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute -bottom-14 -right-14 h-32 w-32 rounded-full bg-saffron/10 blur-2xl"
-                />
+                  className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl"
+                >
+                  <div className="absolute -bottom-14 -right-14 h-32 w-32 rounded-full bg-saffron/10 blur-2xl" />
+                </div>
+                <div
+                  className="relative p-4 sm:p-6 lg:p-8"
+                  style={{ containerType: 'inline-size' }}
+                >
+                  <div
+                    className="flex max-w-full items-baseline gap-1 whitespace-nowrap font-extrabold tracking-tight text-cream"
+                    style={{
+                      fontSize: 'clamp(1.25rem, 28cqi, 4.5rem)',
+                      lineHeight: 1,
+                    }}
+                  >
+                    <AnimatedNumber
+                      className="tabular-nums"
+                      value={s.value}
+                      duration={2.4}
+                      play={inView}
+                    />
+                    {s.suffix ? (
+                      <span className="text-saffron">{s.suffix}</span>
+                    ) : null}
+                  </div>
+                  <div className="mt-6 text-lg font-semibold leading-snug tracking-tight">
+                    {s.label}
+                  </div>
+                  <div className="mt-1 text-sm leading-snug text-cream/60">
+                    {s.hint}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

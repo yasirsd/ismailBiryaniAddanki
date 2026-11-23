@@ -147,13 +147,14 @@ export function Footer() {
 
         <div
           aria-hidden
-          className="pointer-events-none mt-16 select-none overflow-hidden opacity-[0.06]"
+          className="pointer-events-none mt-16 w-full select-none pb-24 md:pb-0"
+          style={{ containerType: 'inline-size' }}
         >
           <p
-            className="whitespace-nowrap text-[22vw] font-extrabold leading-none tracking-tighter text-cream"
+            className="max-w-full whitespace-nowrap text-left font-extrabold leading-none tracking-tighter"
             style={{
-              WebkitTextStroke: '1px rgba(255,255,255,0.35)',
-              color: 'transparent',
+              fontSize: 'clamp(1.35rem, 10.4cqi, 9.25rem)',
+              color: 'rgba(244, 236, 220, 0.92)',
             }}
           >
             ISMAIL BIRYANI

@@ -1,179 +1,143 @@
-import { fryPic, kebabPic, lassiPic, nizamiPic, premiumPic } from '@/assets/images'
+import { fryPic, lassiPic, nizamiPic } from '@/assets/images'
+
+const img = (id) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1600&q=80`
 
 export const menuCategories = [
-  { id: 'chicken', name: 'Chicken Dum Biryani', tagline: 'The signature' },
-  { id: 'mutton', name: 'Mutton Biryani', tagline: 'Slow-cooked luxury' },
-  { id: 'family', name: 'Family Packs', tagline: 'Made to share' },
-  { id: 'special', name: 'Special Biryani', tagline: 'Chef’s creations' },
-  { id: 'starters', name: 'Starters', tagline: 'The opening act' },
-  { id: 'beverages', name: 'Beverages', tagline: 'Cool the spice' },
+  { id: 'bread', name: 'Indian Bread', tagline: 'From the tandoor' },
+  { id: 'biryani', name: "Ismail's Biryani Specials", tagline: 'The house specials' },
+  { id: 'veg', name: 'Veg Curries', tagline: 'From the curry pot' },
+  { id: 'chicken-bone', name: 'Chicken Curries (Bones)', tagline: 'Cooked on the bone' },
+  { id: 'chicken-boneless', name: 'Chicken Curries (Bone Less)', tagline: 'Bone less curries' },
+  { id: 'rice', name: 'Fried Rice', tagline: 'Tossed to order' },
   { id: 'desserts', name: 'Desserts', tagline: 'A sweet ending' },
 ]
 
 export const menuItems = [
-  // Chicken
   {
-    id: 'signature-chicken-dum',
-    category: 'chicken',
-    name: 'Signature Chicken Dum Biryani',
-    description:
-      'Sneha Farm chicken layered with long-grain basmati, slow-cooked the dum way with saffron, mint and traditional Hyderabadi masalas.',
-    price: 260,
-    tag: 'Signature',
+    id: 'butter-naan',
+    category: 'bread',
+    name: 'Butter Naan',
+    description: 'Soft tandoor naan, finished with butter.',
+    price: 75,
     image:
-      'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1600&q=80',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Butter_Naan_2.jpg/960px-Butter_Naan_2.jpg',
   },
   {
-    id: 'chicken-boneless-dum',
-    category: 'chicken',
-    name: 'Chicken Boneless Dum',
+    id: 'roti',
+    category: 'bread',
+    name: 'Roti',
+    description: 'Whole-wheat roti, cooked on the tandoor.',
+    price: 55,
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tandoori-rotis.jpg/960px-Tandoori-rotis.jpg',
+  },
+  {
+    id: 'chicken-dum-2',
+    category: 'biryani',
+    name: 'Chicken Dum (2 Pcs.) Biryani',
     description:
-      'Tender boneless chicken marinated overnight in yogurt and whole spices, dum-cooked on low flame.',
-    price: 290,
+      'Chicken and long-grain basmati, slow-cooked the dum way with saffron and mint.',
+    price: 240,
+    tag: 'Signature',
     image: nizamiPic,
     objectPosition: '38% 58%',
   },
   {
-    id: 'chicken-fry-piece',
-    category: 'chicken',
-    name: 'Chicken Fry Piece Biryani',
-    description:
-      'Signature dum biryani crowned with a golden fried leg piece - crisp outside, silken within.',
-    price: 320,
-    tag: 'Chef’s pick',
+    id: 'chicken-fry-3',
+    category: 'biryani',
+    name: 'Chicken Fry (3 Pcs.) Biryani',
+    description: 'Dum biryani served with fried chicken pieces.',
+    price: 260,
+    tag: "Chef's pick",
     image: fryPic,
     objectPosition: '62% 55%',
   },
-  // Mutton
   {
-    id: 'mutton-dum',
-    category: 'mutton',
-    name: 'Hyderabadi Mutton Dum Biryani',
-    description:
-      'Aged, hand-cut mutton simmered with saffron milk, browned onions and heritage masalas - a four-hour ceremony on the flame.',
-    price: 420,
+    id: 'mutton-dum-4',
+    category: 'biryani',
+    name: 'Mutton Dum (4 Pcs.) Biryani',
+    description: 'Slow-cooked mutton dum biryani, finished with saffron rice.',
+    price: 450,
     tag: 'House favorite',
-    image:
-      'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=1600&q=80',
+    image: img('1633945274405-b6c8069047b0'),
     objectPosition: '50% 46%',
   },
   {
-    id: 'mutton-keema',
-    category: 'mutton',
-    name: 'Mutton Keema Biryani',
-    description:
-      'Minced mutton, ghee-toasted rice, whole cardamom and a whisper of rose water.',
+    id: 'paneer-butter-masala',
+    category: 'veg',
+    name: 'Paneer Butter Masala',
+    description: 'Paneer in a tomato and butter gravy.',
+    price: 385,
+    image: img('1588166524941-3bf61a9c41db'),
+  },
+  {
+    id: 'palak-paneer',
+    category: 'veg',
+    name: 'Palak Paneer',
+    description: 'Paneer simmered in a spinach gravy.',
+    price: 320,
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Palak_Paneer_at_WCI_2023.jpg/960px-Palak_Paneer_at_WCI_2023.jpg',
+  },
+  {
+    id: 'kadai-paneer',
+    category: 'veg',
+    name: 'Kadai Paneer',
+    description: 'Paneer and capsicum in a kadai masala.',
     price: 380,
     image:
-      'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1600&q=80',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Kadai_paneer_with_garlic_naan.jpg/960px-Kadai_paneer_with_garlic_naan.jpg',
   },
-  // Family packs
   {
-    id: 'family-jumbo',
-    category: 'family',
-    name: 'Family Jumbo Biryani (Serves 4)',
-    description:
-      'A generous share of signature dum biryani, raita, salan and shorba. Served at your table, set for the family.',
-    price: 1099,
-    tag: 'Serves 4',
+    id: 'chicken-curry-bone',
+    category: 'chicken-bone',
+    name: 'Chicken Curry',
+    description: 'Chicken simmered in a spiced onion and tomato gravy.',
+    price: 375,
+    image: img('1565557623262-b51c2513a641'),
+  },
+  {
+    id: 'butter-chicken',
+    category: 'chicken-boneless',
+    name: 'Butter Chicken',
+    description: 'Boneless chicken in a creamy tomato and butter gravy.',
+    price: 440,
+    image: img('1603894584373-5ac82b2ae398'),
+  },
+  {
+    id: 'veg-fried-rice',
+    category: 'rice',
+    name: 'Veg. Fried Rice',
+    description: 'Rice tossed with mixed vegetables.',
+    price: 310,
+    image: img('1603133872878-684f208fb84b'),
+  },
+  {
+    id: 'egg-fried-rice',
+    category: 'rice',
+    name: 'Egg Fried Rice',
+    description: 'Rice tossed with egg.',
+    price: 320,
     image:
-      'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1600&q=80',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Egg_Fried_Rice.jpg/960px-Egg_Fried_Rice.jpg',
   },
   {
-    id: 'family-mutton',
-    category: 'family',
-    name: 'Family Mutton Feast (Serves 6)',
-    description:
-      'Slow-cooked mutton dum, hara masala kebab, sheer khurma and a live steam presentation.',
-    price: 1899,
-    tag: 'Serves 6',
+    id: 'zeera-rice',
+    category: 'rice',
+    name: 'Zeera Rice',
+    description: 'Steamed rice tempered with cumin.',
+    price: 300,
     image:
-      'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=1600&q=80',
-  },
-  // Special
-  {
-    id: 'special-nizami',
-    category: 'special',
-    name: 'Nizami Reserve Biryani',
-    description:
-      'A limited weekend creation - kesar-infused basmati, edible silver leaf, house-blended garam masala.',
-    price: 549,
-    tag: 'Limited',
-    image: nizamiPic,
-    objectPosition: '38% 58%',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Jeera_rice.jpg/960px-Jeera_rice.jpg',
   },
   {
-    id: 'special-veg',
-    category: 'special',
-    name: 'Royal Vegetable Dum',
-    description:
-      'Baby vegetables, paneer and cashew braise, slow-cooked until the rice takes on every spice.',
-    price: 249,
-    image: premiumPic,
-    objectPosition: '50% 62%',
-  },
-  // Starters
-  {
-    id: 'chicken-65',
-    category: 'starters',
-    name: 'Andhra Chicken 65',
-    description:
-      'Signature crispy fry with curry leaves, ghost chilli and a squeeze of Nellore lime.',
-    price: 220,
-    image:
-      'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=1600&q=80',
-  },
-  {
-    id: 'kebab-hara',
-    category: 'starters',
-    name: 'Hara Masala Kebab',
-    description:
-      'Coriander, mint and green chilli marinated chicken, kissed by the tandoor.',
-    price: 240,
-    image: kebabPic,
-    objectPosition: '50% 55%',
-  },
-  // Beverages
-  {
-    id: 'saffron-lassi',
-    category: 'beverages',
-    name: 'Saffron Kesar Lassi',
-    description:
-      'Thick yogurt whisked with saffron, cardamom and a whisper of rose.',
-    price: 90,
+    id: 'lassi',
+    category: 'desserts',
+    name: 'Lassi (Sweet / Salt)',
+    description: 'Chilled yogurt lassi, served sweet or salted.',
+    price: 75,
     image: lassiPic,
     objectPosition: '50% 68%',
-  },
-  {
-    id: 'irani-chai',
-    category: 'beverages',
-    name: 'Hyderabadi Irani Chai',
-    description:
-      'A slow-brewed decoction, whole milk, palm sugar. Served in vintage porcelain.',
-    price: 60,
-    image:
-      'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=1600&q=80',
-  },
-  // Desserts
-  {
-    id: 'double-ka-meetha',
-    category: 'desserts',
-    name: 'Double Ka Meetha',
-    description:
-      'Hyderabad’s beloved bread pudding, saffron milk, ghee-fried bread, crowned with pistachio.',
-    price: 140,
-    tag: 'Tradition',
-    image:
-      'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1600&q=80',
-  },
-  {
-    id: 'sheer-khurma',
-    category: 'desserts',
-    name: 'Sheer Khurma',
-    description:
-      'Vermicelli in reduced milk with dates, almonds and a hint of kewra.',
-    price: 160,
-    image:
-      'https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=1600&q=80',
   },
 ]

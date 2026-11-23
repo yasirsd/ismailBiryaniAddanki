@@ -12,7 +12,7 @@ export const faqItems = [
   {
     id: 'q3',
     q: 'Do you offer family packs and parcels?',
-    a: 'Yes - Family Jumbo Biryani (serves 4) and Family Mutton Feast (serves 6) are our most-loved parcels. Every parcel is packed with care, so the biryani arrives as it left the kitchen.',
+    a: 'Yes. Chicken Dum Biryani, Chicken Fry Biryani and Mutton Dum Biryani are packed for parcels, so the biryani arrives as it left the kitchen.',
   },
   {
     id: 'q4',
@@ -22,7 +22,7 @@ export const faqItems = [
   {
     id: 'q5',
     q: 'Do you have vegetarian options?',
-    a: 'Yes - our Royal Vegetable Dum, paneer starters and desserts are crafted with the same care as our signature biryanis.',
+    a: 'Yes - Veg. Biryani, Paneer Butter Masala, Palak Paneer and Kadai Paneer are cooked with the same care as the signature biryanis.',
   },
   {
     id: 'q6',

@@ -104,7 +104,7 @@ export const dumStages = [
     id: 'stage-4',
     title: 'The plate',
     body:
-      'Served with mirchi ka salan, burani raita and shorba. Set for you, like family.',
+      'Set down at the table, like family.',
     image:
       'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=1800&q=80',
     objectPosition: '50% 46%',

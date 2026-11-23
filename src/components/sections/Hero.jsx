@@ -1,11 +1,10 @@
 import { useRef } from 'react'
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
-import { ArrowRight, MapPin } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
+import { MapPin } from 'lucide-react'
 import { SpiceParticles } from '@/components/effects/SpiceParticles'
 import { Steam } from '@/components/effects/Steam'
 import { OpenNowCard } from '@/components/sections/hero/OpenNowCard'
-import { branchPic, founderPic, proprietorPic } from '@/assets/images'
+import { branchPic, branchSrcSet, founderAvatar, proprietorPic } from '@/assets/images'
 
 export function Hero() {
   const ref = useRef(null)
@@ -27,7 +26,6 @@ export function Hero() {
 
   return (
     <section
-      id="top"
       ref={ref}
       aria-label="Ismail Biryani - the art of authentic Hyderabadi Dum"
       className="min-h-hero relative isolate overflow-hidden bg-luxury-black text-cream"
@@ -40,9 +38,14 @@ export function Hero() {
       >
         <img
           src={branchPic}
+          srcSet={branchSrcSet}
+          sizes="100vw"
           alt=""
+          width={1672}
+          height={941}
           loading="eager"
           fetchPriority="high"
+          decoding="async"
           className="h-full w-full object-cover"
           style={{
             // Portrait phones need the crop biased slightly high so the
@@ -141,40 +144,12 @@ export function Hero() {
             Twenty years of Hyderabadi dum, one plate at a time.
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.9 }}
-            className="mt-10 flex flex-wrap items-center gap-5"
-          >
-            <Button asChild variant="gold" size="lg">
-              <a href="#contact">
-                Reserve a table
-                <ArrowRight
-                  size={18}
-                  className="transition-transform duration-500 group-hover:translate-x-1"
-                />
-              </a>
-            </Button>
-            <a
-              href="#story"
-              className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-cream/70 transition-colors hover:text-cream"
-            >
-              Our story
-              <ArrowRight
-                size={13}
-                className="transition-transform duration-500 group-hover:translate-x-1"
-              />
-            </a>
-          </motion.div>
-
-          {/* Family credential strip */}
+          {/* Family credential strip, in the space the hero actions used */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3, duration: 1 }}
-            className="mt-10 border-t border-white/10 pt-6 md:mt-14 md:pt-8"
+            transition={{ delay: 1.1, duration: 1 }}
+            className="mt-10 border-t border-white/10 pt-6 md:pt-8"
           >
             <div className="mb-4 text-[10px] uppercase tracking-[0.32em] text-cream/65 md:mb-5">
               A family kitchen · Two generations
@@ -186,7 +161,7 @@ export function Hero() {
                 role="Proprietor · Addanki"
               />
               <FamilyBadge
-                avatar={founderPic}
+                avatar={founderAvatar}
                 name="Syed Ismail Basha"
                 role="Founder · Ongole, 2005"
                 sepia

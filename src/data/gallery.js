@@ -1,21 +1,21 @@
-import { fryPic, lassiPic, nizamiPic } from '@/assets/images'
+import { diningPic, fryPic, lassiPic, nizamiPic, premiumPic } from '@/assets/images'
 
 export const galleryImages = [
   {
     id: 'g1',
     src: fryPic,
     objectPosition: '55% 48%',
-    alt: 'A close plate of chicken dum biryani',
+    alt: 'Chicken Fry (3 Pcs.) Biryani',
     tall: true,
-    caption: 'The first steam of dum.',
+    caption: 'Chicken Fry (3 Pcs.) Biryani',
   },
   {
     id: 'g2',
     src: nizamiPic,
     objectPosition: '36% 58%',
     zoom: 1.72,
-    alt: 'Chicken biryani served on a plate',
-    caption: 'Basmati, saffron, patience.',
+    alt: 'Chicken Dum (2 Pcs.) Biryani',
+    caption: 'Chicken Dum (2 Pcs.) Biryani',
   },
   {
     id: 'g3',
@@ -27,20 +27,20 @@ export const galleryImages = [
     id: 'g4',
     src: 'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=2000&q=85',
     objectPosition: '50% 46%',
-    alt: 'Mutton biryani served on a platter',
+    alt: 'Mutton Dum (4 Pcs.) Biryani',
     tall: true,
-    caption: 'Four hours on a whisper of flame.',
+    caption: 'Mutton Dum (4 Pcs.) Biryani',
   },
   {
     id: 'g5',
-    src: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=2000&q=85',
-    alt: 'Golden Andhra chicken 65',
-    caption: 'Andhra 65 - the opening act.',
+    src: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=2000&q=85',
+    alt: 'Butter Chicken',
+    caption: 'Butter Chicken',
   },
   {
     id: 'g6',
-    src: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=2000&q=85',
-    alt: 'Family dining together at Ismail Biryani',
+    src: diningPic,
+    alt: 'The dining room at Ismail Biryani, Addanki',
     caption: 'Guests, not customers.',
   },
   {
@@ -54,13 +54,14 @@ export const galleryImages = [
     id: 'g8',
     src: lassiPic,
     objectPosition: '50% 68%',
-    alt: 'Saffron kesar lassi in a silver glass',
-    caption: 'Saffron. Silver. Ceremony.',
+    alt: 'Lassi (Sweet / Salt)',
+    caption: 'Lassi (Sweet / Salt)',
   },
   {
     id: 'g9',
-    src: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=2000&q=85',
-    alt: 'Double ka meetha dessert',
-    caption: 'A sweet ending.',
+    src: premiumPic,
+    objectPosition: '50% 62%',
+    alt: 'Veg. Biryani',
+    caption: 'Veg. Biryani',
   },
 ]

@@ -3,11 +3,10 @@ import { MapPin } from 'lucide-react'
 import { ReelShell, ReelCopy } from '../ReelShell'
 import { KineticYear } from '../KineticYear'
 import { Artifact } from '../Artifact'
-import { branchPic, proprietorPic } from '@/assets/images'
+import { branchPic, branchSrcSet, diningPic, diningSrcSet, proprietorPic } from '@/assets/images'
 
 const IMG_MAIN = branchPic
-const IMG_SUPPORT =
-  'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1400&q=90'
+const IMG_SUPPORT = diningPic
 
 export function ReelAddanki({ chapter, active, index, total, mobile = false }) {
   if (mobile) {
@@ -42,6 +41,8 @@ export function ReelAddanki({ chapter, active, index, total, mobile = false }) {
           <div className="relative h-full overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9)]">
             <img
               src={IMG_MAIN}
+              srcSet={branchSrcSet}
+              sizes="(max-width: 768px) 100vw, 46vw"
               alt="Ismail Biryani - the Addanki branch"
               loading="lazy"
               className="h-full w-full object-cover"
@@ -126,7 +127,9 @@ export function ReelAddanki({ chapter, active, index, total, mobile = false }) {
             <div className="relative h-full min-h-[16vh] overflow-hidden rounded-[1.5rem] border border-white/10 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.8)]">
               <img
                 src={IMG_SUPPORT}
-                alt="Families dining together at Ismail Biryani"
+                srcSet={diningSrcSet}
+                sizes="(max-width: 768px) 100vw, 40vw"
+                alt="The dining room at Ismail Biryani, Addanki"
                 loading="lazy"
                 className="h-full w-full object-cover"
                 style={{ filter: 'var(--reel-img-filter)' }}
@@ -200,6 +203,8 @@ function MobileReelAddanki({ chapter, active, index, total }) {
           <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)]">
             <img
               src={IMG_MAIN}
+              srcSet={branchSrcSet}
+              sizes="(max-width: 768px) 100vw, 46vw"
               alt="Ismail Biryani - the Addanki branch"
               loading="lazy"
               className="h-full w-full object-cover"
