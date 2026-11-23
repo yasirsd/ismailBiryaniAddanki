@@ -1,26 +1,30 @@
+const address =
+  'D.No. 6-130/A, Kakani Palem, Near Bhavani Center, Addanki, Andhra Pradesh, India'
+const mapsQuery = encodeURIComponent(address)
+
 export const site = {
   name: 'Ismail Biryani',
   tagline: 'The Art of Authentic Hyderabadi Dum Biryani',
   since: 2005,
   proprietor: 'Syed Vaseem Akram',
   founder: 'Syed Ismail Basha',
+  gstin: '37GCQPS9732B1ZZ',
   branch: {
     name: 'Ismail Biryani - Addanki',
     city: 'Addanki',
     district: 'Prakasam, Andhra Pradesh',
     country: 'India',
-    address: 'Main Road, Addanki, Prakasam District, Andhra Pradesh 523201, India',
-    phone: '+91 98765 43210',
-    phoneDisplay: '+91 98765 43210',
-    whatsapp: '+919876543210',
-    email: 'hello@ismailbiryani.com',
+    address,
+    phone: '+91 9010 111 454',
+    phoneDisplay: '+91 9010 111 454',
+    whatsapp: '+919010111454',
+    email: 'ismailbiryaniaddanki@gmail.com',
     hours: [
       { day: 'Monday – Thursday', time: '11:00 AM - 11:00 PM' },
       { day: 'Friday – Sunday', time: '11:00 AM - 12:00 AM' },
     ],
-    mapEmbed:
-      'https://www.google.com/maps?q=Addanki%2C%20Prakasam%20District%2C%20Andhra%20Pradesh&t=&z=14&ie=UTF8&iwloc=&output=embed',
-    mapLink: 'https://www.google.com/maps/search/Ismail+Biryani+Addanki',
+    mapEmbed: `https://www.google.com/maps?q=${mapsQuery}&z=16&output=embed`,
+    mapLink: `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`,
   },
   socials: {
     facebook: 'https://www.facebook.com/share/1DCABYaUF2/?mibextid=wwXIfr',

@@ -163,8 +163,8 @@ export function Contact() {
                     rel="noreferrer"
                     className="flex items-start gap-3 text-cream/80 hover:text-cream"
                   >
-                    <MapPin size={18} className="mt-0.5 text-saffron shrink-0" />
-                    <span>{site.branch.address}</span>
+                    <MapPin size={18} className="mt-0.5 shrink-0 text-saffron" />
+                    <span className="min-w-0">{site.branch.address}</span>
                   </a>
                   <a
                     href={telLink}
@@ -175,10 +175,10 @@ export function Contact() {
                   </a>
                   <a
                     href={`mailto:${site.branch.email}`}
-                    className="flex items-center gap-3 text-cream/80 hover:text-cream"
+                    className="flex items-start gap-3 text-cream/80 hover:text-cream"
                   >
-                    <Mail size={18} className="text-saffron" />
-                    {site.branch.email}
+                    <Mail size={18} className="mt-0.5 shrink-0 text-saffron" />
+                    <span className="min-w-0 break-all">{site.branch.email}</span>
                   </a>
                 </div>
 

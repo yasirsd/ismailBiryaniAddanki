@@ -15,19 +15,14 @@ export function StructuredData() {
       priceRange: '₹₹',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Main Road',
+        streetAddress: 'D.No. 6-130/A, Kakani Palem, Near Bhavani Center',
         addressLocality: site.branch.city,
         addressRegion: 'Andhra Pradesh',
-        postalCode: '523201',
         addressCountry: 'IN',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 15.813,
-        longitude: 79.983,
       },
       telephone: site.branch.phone,
       email: site.branch.email,
+      taxID: site.gstin,
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',

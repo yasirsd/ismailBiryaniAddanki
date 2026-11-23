@@ -222,10 +222,8 @@ export function OpenNowCard({ className, variant = 'full' }) {
             <IconChip>
               <MapPin size={13} />
             </IconChip>
-            <span className="pt-0.5 text-[13px] leading-snug">
-              Main Road, Addanki
-              <br />
-              <span className="text-cream/50">Prakasam · Andhra Pradesh</span>
+            <span className="min-w-0 pt-0.5 text-[13px] leading-snug">
+              {site.branch.address}
             </span>
             <ArrowUpRight
               size={13}

@@ -65,8 +65,8 @@ export function Footer() {
                 rel="noreferrer"
                 className="flex items-start gap-3 hover:text-cream"
               >
-                <MapPin size={16} className="mt-0.5 text-saffron" />
-                <span>{site.branch.address}</span>
+                <MapPin size={16} className="mt-0.5 shrink-0 text-saffron" />
+                <span className="min-w-0">{site.branch.address}</span>
               </a>
               <a
                 href={`tel:${site.branch.phone.replace(/\s/g, '')}`}
@@ -77,10 +77,10 @@ export function Footer() {
               </a>
               <a
                 href={`mailto:${site.branch.email}`}
-                className="flex items-center gap-3 hover:text-cream"
+                className="flex items-start gap-3 hover:text-cream"
               >
-                <Mail size={16} className="text-saffron" />
-                {site.branch.email}
+                <Mail size={16} className="mt-0.5 shrink-0 text-saffron" />
+                <span className="min-w-0 break-all">{site.branch.email}</span>
               </a>
             </div>
           </div>
@@ -112,6 +112,7 @@ export function Footer() {
           <p className="max-w-lg">
             © {new Date().getFullYear()} Ismail Biryani - Addanki. A proprietor
             firm by {site.proprietor}. Recipe by {site.founder}.
+            <span className="mt-1 block">GSTIN {site.gstin}</span>
           </p>
 
           <div className="flex items-center gap-2">
