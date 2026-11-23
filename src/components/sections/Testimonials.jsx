@@ -138,6 +138,20 @@ export function Testimonials() {
   )
 }
 
+function GuestAvatar() {
+  return (
+    <span
+      aria-hidden
+      className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-luxury-black/8 text-luxury-black/55 ring-2 ring-white dark:bg-cream/10 dark:text-cream/75 dark:ring-white/10"
+    >
+      <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor">
+        <circle cx="12" cy="8" r="3.15" />
+        <path d="M5.15 19.15c.85-3.45 3.45-5.25 6.85-5.25s6 1.8 6.85 5.25c.18.72-.35 1.35-1.05 1.35H6.2c-.7 0-1.23-.63-1.05-1.35Z" />
+      </svg>
+    </span>
+  )
+}
+
 function TestimonialCard({ t, active }) {
   return (
     <motion.article
@@ -156,12 +170,7 @@ function TestimonialCard({ t, active }) {
       </div>
 
       <div className="mt-10 flex items-center gap-4">
-        <img
-          src={t.avatar}
-          alt=""
-          loading="lazy"
-          className="h-12 w-12 rounded-full object-cover ring-2 ring-white dark:ring-white/10"
-        />
+        <GuestAvatar />
         <div className="flex-1">
           <div className="font-semibold text-luxury-black dark:text-cream">
             {t.name}
